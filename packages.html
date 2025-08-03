@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Planurise - Packages</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="header.css">
+
+  <style>
+    
+    /* Packages Section */
+    .packages-section {
+      text-align: center;
+      padding: 70px 20px;
+      background: #fff9fb;
+    }
+
+    .packages-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 50px;
+      color: #b30059;
+      animation: zoomIn 1s ease-in-out;
+    }
+
+    .package-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      width: 320px;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      animation: fadeInUpCard 1s ease forwards;
+    }
+
+    .card:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .card:hover {
+      transform: scale(1.06);
+      box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4), 0 0 10px #ff80bf;
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card-content {
+      padding: 25px;
+      text-align: left;
+    }
+
+    .card-content h3 {
+      font-size: 1.8rem;
+      color: #ff1493;
+      margin-bottom: 12px;
+      transition: color 0.3s ease;
+    }
+
+    .card:hover .card-content h3 {
+      color: #b30059;
+    }
+
+    .card-content p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .package-container a {
+      text-decoration: none;
+      color: inherit;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    @keyframes fadeInUpCard {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      background: #fff0f6;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .gallery-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .gallery-section p {
+      font-size: 1rem;
+      color: #a1558f;
+      margin-bottom: 30px;
+    }
+
+    .scroll-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow: hidden;
+    }
+
+    .scroll-gallery {
+      display: flex;
+      gap: 30px;
+      white-space: nowrap;
+    }
+
+    .scroll-left {
+      animation: scrollLeft 40s linear infinite;
+    }
+
+    .scroll-right {
+      animation: scrollRight 40s linear infinite;
+    }
+
+    .scroll-gallery:hover {
+      animation-play-state: paused;
+    }
+
+    .scroll-gallery img {
+      height: 250px;
+      border-radius: 15px;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .scroll-gallery img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-quote {
+      font-size: 1.3rem;
+      color: #7c1c57;
+      margin-top: 30px;
+      font-weight: 600;
+    }
+
+    @keyframes scrollLeft {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes scrollRight {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    body {
+  font-family: 'Poppins', sans-serif;
+  background: #AFCDB6;
+  color: #2e2e2e;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background:rgb(164, 119, 85);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  color: white;
+  position: sticky;
+  top: 0;
+  padding: 15px 30px;
+  flex-wrap: wrap;
+  z-index: 5;
+}
+
+/* Packages Section */
+.packages-section {
+  text-align: center;
+  padding: 70px 20px;
+  background: #E1CEBA;
+}
+
+.packages-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 50px;
+  color: #6A4637;
+  animation: zoomIn 1s ease-in-out;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  width: 320px;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeInUpCard 1s ease forwards;
+  border:8px solid white;
+}
+
+.card-content h3 {
+  font-size: 1.8rem;
+  color: #6A4637;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #727D71;
+}
+
+/* Gallery Section */
+.gallery-section {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.gallery-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #6A4637;
+}
+
+.gallery-section p {
+  font-size: 1rem;
+  color: #727D71;
+  margin-bottom: 30px;
+}
+
+.gallery-quote {
+  font-size: 1.3rem;
+  color: #6A4637;
+  margin-top: 30px;
+  font-weight: 600;
+}
+
+.subscribe-form button {
+  background-color: #727D71;
+}
+
+.subscribe-form button:hover {
+  background-color: #5c6a5a;
+}
+.packages-section {
+  text-align: center;
+  background: #E1CEBA;
+  position: relative;
+  border: 2px solid #ffffff; /* outer subtle border */
+  margin: 30px;
+}
+
+body {
+  background: #D9C3AA; /* Biscuit background */
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background: #D9C3AA; /* Biscuit color */
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.packages-section {
+  background: transparent; /* Let it inherit from body */
+  position: relative;
+  padding: 70px 30px;
+  margin: 20px;
+}
+.connect-section {
+  background-color: rgb(155, 149, 106); /* Match overall theme */
+  padding: 60px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.connect-container {
+  display: flex;
+  width: 80%;
+  max-width: 1200px;
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.connect-text,
+.connect-image {
+  flex: 1;
+}
+
+.connect-text {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.connect-subtitle {
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: #6A4637;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.connect-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #6A4637;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.connect-button {
+  display: inline-block;
+  padding: 10px 8px;
+  background-color: #000;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.connect-button:hover {
+  background-color: #444;
+}
+
+.connect-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Original green background stays on section */
+.connect-section {
+  background-color: rgb(155, 149, 106);
+  padding: 15px 15px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Inner border wrapper */
+.connect-inner-border {
+  border: 2px solid white;
+  padding: 20px;
+  width: 85%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  background-color: rgb(155, 149, 106); /* same as section */
+}
+
+@media (max-width: 768px) {
+  .connect-inner-border {
+    padding: 20px;
+    width: 90%;
+  }
+}
+.connect-section {
+  background-color: rgb(155, 149, 106); /* green background */
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.connect-inner-wrapper {
+  border: 2px solid white;
+  border-radius: 12px;
+  padding: 40px;
+  width: 85%;
+  max-width: 1200px;
+  background-color: rgb(155, 149, 106); /* same green to blend in */
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .connect-inner-wrapper {
+    width: 90%;
+    padding: 25px;
+  }
+}
+/* Outer Section with tan background and inner white border */
+.connect-section {
+  background-color: #9d956e; /* your green background */
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.connect-border-wrapper {
+  border: 1px solid white;
+  padding: 5px;
+  max-width: 1600px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* Flex container for content + image */
+.connect-box {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Left content block */
+.connect-left {
+  background-color: white;
+  padding: 5px 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Right image block */
+.connect-right {
+  flex: 1;
+  display: flex;
+}
+
+.connect-right img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text Styling */
+.connect-subtitle {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.connect-heading {
+  font-size: 2.5rem;
+  color: #b48a64;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.connect-button {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 14px 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .connect-box {
+    flex-direction: column;
+  }
+
+  .connect-left,
+  .connect-right {
+    flex: 1 1 100%;
+  }
+
+  .connect-right img {
+    height: auto;
+  }
+
+  .connect-left {
+    padding: 50px 20px;
+    text-align: center;
+  }
+}
+
+.card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4), 0 0 10px #ff80bf;
+}
+
+.card-content h3 {
+  font-size: 1.8rem;
+  color: #ff1493;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.card:hover .card-content h3 {
+  color: #b30059;
+}
+.card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 30px 50px rgba(106, 70, 55, 0.5), 0 0 10px #8b6e4a;
+}
+
+.card-content h3 {
+  font-size: 1.8rem;
+  color: #6A4637;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.card:hover .card-content h3 {
+  color: #8b6e4a;
+}
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .footer-logo {
+    max-height: 150px;
+    width: auto;
+  }
+
+  .footer-left h2 {
+    margin: 10px 0 5px;
+    font-size: 24px;
+    color: #4b2e2e;
+  }
+
+  .footer-left p {
+    font-size: 14px;
+  }
+
+  .footer-center h3,
+  .footer-right h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #4b2e2e;
+  }
+
+  .footer-center ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px;
+  }
+
+  .footer-center ul li {
+    margin: 5px 0;
+  }
+
+  .footer-center ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .footer-center ul li a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-icons a {
+    margin: 0 8px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-icons img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.3);
+    transition: 0.3s ease;
+  }
+
+  .footer-icons img:hover {
+    filter: brightness(1);
+    transform: scale(1.1);
+  }
+
+  .footer-right p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  iframe {
+    border-radius: 8px;
+  }
+
+  .copyright {
+    text-align: center;
+    font-size: 14px;
+
+    color: #555;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-left, .footer-center, .footer-right {
+      max-width: 100%;
+    }
+
+    iframe {
+      width: 100%;
+    }
+  }
+.footer-icons {
+  margin-top: 8px;
+}
+
+.footer-icons a {
+  margin: 0 6px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.footer-icons img {
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.3);
+  transition: 0.3s ease;
+}
+
+.footer-icons img:hover {
+  filter: brightness(1);
+  transform: scale(1.1);
+}
+
+.copyright {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 30px;
+  color: #555;
+  width: 100%;
+}
+footer{
+  background-color:  #f4efec;;
+}
+</style>
+<script src="home.js"></script>
+
+</head>
+
+<body>
+  <!-- Navigation Header -->
+  <!-- Keep your original nav bar and footer code here -->
+ <nav class="header">
+            <div class="nav-left">
+                <img class="logo_img" src="img/logo.png" alt="logo">
+                <div class="logo">Planurise</div>
+            </div>
+            <div class="nav-right desktop-nav">
+                <div class="nav-item">
+                    <a href="index.html" class="no-underline ">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+                </div>
+                <div class="nav-item">
+                    <a href="packages.html" class="no-underline active">Packages</a>
+                </div>
+                <div class="nav-item">
+                    <a href="Guest.html" class="no-underline">Guest Manager</a>
+                </div>
+                <div class="nav-item">
+                    <a href="my_events.html" class="no-underline">My events</a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html" class="no-underline">About us</a>
+                </div>
+                <div class="user">
+                    <a href="profile.html" class="no-underline">
+                        <img class="profile-img" src="img/profile.jpg" alt="Profile">
+                    </a>
+                </div>
+            </div>
+            <button class="menu-bar" onclick="openSidebar()">☰</button>
+        </nav>
+
+        <div class="sidebar" id="sidebar">
+            <div class="close-icon" onclick="closeSidebar()">X</div>
+            <div class="options">
+                <a href="index.html" class="no-underline">Home</a>
+                <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+                <a href="packages.html" class="no-underline active">Packages</a>
+                <a href="Guest.html" class="no-underline">Guest Manager</a>
+                <a href="my_events.html" class="no-underline">My events</a>
+                <a href="about.html" class="no-underline">About us</a>
+                <a href="profile.html" class="no-underline">Profile</a>
+            </div>
+        </div>
+
+
+  <!-- Main Packages Section -->
+  <section class="packages-section">
+    <h2>Discover Your Perfect Celebration</h2>
+    <div class="package-container">
+      <a href="royal.html" class="card">
+        <img src="https://i.pinimg.com/originals/4a/d4/03/4ad40302d120dc057fc9cc8ca06390ca.jpg" alt="Royal Package">
+        <div class="card-content">
+          <h3>Royal Package</h3>
+          <p>Experience elite grandeur and luxury designs crafted to impress royally.</p>
+        </div>
+      </a>
+      <a href="intermediate.html" class="card">
+        <img src="http://www.fabmood.com/wp-content/uploads/2015/11/bohemian-style-wedding-idea6.jpg" alt="Intermediate Package">
+        <div class="card-content">
+          <h3>Intermediate Package</h3>
+          <p>A vibrant mix of budget-friendly style and elegance – your balanced solution.</p>
+        </div>
+      </a>
+      <a href="basic.html" class="card">
+        <img src="https://i.pinimg.com/736x/f7/a4/0d/f7a40d421ba4c1f3924d6f6d85427e2f.jpg" alt="Basic Package">
+        <div class="card-content">
+          <h3>Basic Package</h3>
+          <p>Clean, cozy, and delightful – perfect for intimate gatherings that feel special.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <h2>Endless Decor Possibilities</h2>
+    <p>From Royal to Rustic – Explore What We Can Do</p>
+
+    <div class="scroll-wrapper">
+      <!-- Left to Right -->
+      <div class="scroll-gallery scroll-left">
+        <img src="https://i.pinimg.com/originals/73/b6/0a/73b60ac1ae30ec613f5689d7fca27b3a.jpg" />
+        <img src="https://i.pinimg.com/originals/6e/2e/cc/6e2eccdf07b9445942d941168056adf9.jpg" />
+        <img src="https://i.pinimg.com/originals/d8/5d/0a/d85d0a7ff65f741d181e27fdd044d5bd.jpg" />
+        <img src="https://i.pinimg.com/originals/38/4b/c1/384bc1d439b5601c3cac6ad364345672.jpg" />
+        <img src="https://i.pinimg.com/originals/70/81/69/708169fa7626cb56179e448477a378a4.jpg" />
+        <img src="https://i5.walmartimages.com/asr/08bef7ce-8fc6-4b69-8e07-3829c9e48d2d.2fc6157449947ac21f851c1351739a9a.jpeg" />
+        <img src="https://ruffledblog.com/wp-content/uploads/weddingdraping-23-andrewbayda-dlyadvoih-flowerbazar.jpg" />
+        <!-- Duplicate for smooth loop -->
+        <img src="https://i.pinimg.com/736x/13/b3/24/13b32474b79279e1d08b4426012deaa9--corporate-event-design-event-decor.jpg" />
+        <img src="https://stylesatlife.com/wp-content/uploads/2023/10/House-Warming-Function-Main-Gate-Floral-Decor.jpg" />
+        <img src="https://i.pinimg.com/originals/0a/ae/84/0aae84a846df43490b9286d40906f085.jpg" />
+        <img src="https://wedbook.in/wp-content/uploads/2022/02/Haldi-Decor-28-768x703.jpg" />
+        <img src="https://i.pinimg.com/736x/ab/6c/04/ab6c04cf5afa33883888c414e1c066be.jpg" />
+        <img src="https://i.pinimg.com/originals/41/8e/31/418e31e3f87e6c7180e67360b8addce9.jpg" />
+        <img src="https://i.pinimg.com/736x/8c/d3/72/8cd3720b8b902dad2472b14bde5e8cb9.jpg" />
+      </div>
+
+      <!-- Right to Left -->
+      <div class="scroll-gallery scroll-right">
+        <img src="https://i.pinimg.com/originals/91/ff/6e/91ff6e75e8ff0ae80365dcd8af14718e.jpg" />
+        <img src="https://sanaahmedphotography.com/wp-content/uploads/sites/9961/2021/01/Austin-Studio-Maternity-Photographer_0001.jpg" />
+        <img src="https://alexandra.bridestory.com/image/upload/blogs/01-elior-S1cS7DEzH.jpg" />
+        <img src="https://d397bfy4gvgcdm.cloudfront.net/364360-Ayesha-ShrayHaldi-42.jpeg" />
+        <img src="https://i.pinimg.com/originals/90/13/9f/90139f98ff38bb28d12b57d6a6e8fa71.jpg" />
+        <img src="https://i.pinimg.com/originals/70/81/69/708169fa7626cb56179e448477a378a4.jpg" />
+        <img src="https://i.pinimg.com/originals/41/8e/31/418e31e3f87e6c7180e67360b8addce9.jpg" />
+        <!-- Duplicate for smooth loop -->
+        <img src="https://www.liveenhanced.com/wp-content/uploads/2019/09/wedding-decoration-10.jpg" />
+        <img src="https://media.weddingz.in/images/af3ed3762c613f4d73a6deb8da37a55c/IfQ6TP-urdnQBGK8aWrs0IPn9cNVzZ2QApz_ehUBOAOHLvPUk3EHIREB1M0pqMF_8_ZzWEiBHpuEJYjV2eoFBDfNstDplqnYM1yA3t2eyMMQEDIcHRA7if1t0Q0RSN16rxmn_BMz.jpg" />
+        <img src="https://i.pinimg.com/originals/15/28/7a/15287a78e431584665b91e3bc282ea4f.jpg" />
+        <img src="https://wedbook.in/wp-content/uploads/2022/02/Haldi-Decor-27.jpg" />
+        <img src="https://www.shaadidukaan.com/vogue/wp-content/uploads/2020/03/engagement-stage-decor.jpg" />
+        <img src="https://i.pinimg.com/originals/0a/ae/84/0aae84a846df43490b9286d40906f085.jpg" />
+        <img src="https://i.pinimg.com/originals/6e/2e/cc/6e2eccdf07b9445942d941168056adf9.jpg" />
+      </div>
+    </div>
+
+    <p class="gallery-quote">From Classic to Contemporary – We Bring Your Vision to Life ✨</p>
+  </section>
+    <!-- Connect Section Start -->
+<!-- Connect Section Start -->
+<!-- Connect Section with inner white border -->
+<section class="connect-section">
+  <div class="connect-inner-border">
+    <div class="connect-container">
+      <div class="connect-text">
+        <p class="connect-subtitle">CONNECT</p>
+        <h2 class="connect-heading">Let us help you<br>plan your perfect event!</h2>
+        <a href="contact_us.html" class="connect-button">GET IN TOUCH</a>
+      </div>
+      <div class="connect-image">
+        <img src="https://i.pinimg.com/originals/94/33/34/94333422872696d3ea0c716664ce2961.jpg">
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="./footer.png" alt="Planurise Logo" class="footer-logo" />
+      <h2>Planurise</h2>
+      <p>Your one-stop destination to customize and plan magical events of all kinds!</p>
+    </div>
+
+    <div class="footer-center">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="footer-icons">
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" alt="Instagram" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/facebook.svg" alt="Facebook" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/twitter.svg" alt="Twitter" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/youtube.svg" alt="YouTube" /></a>
+      </div>
+
+      <!-- New icons row -->
+      <div class="footer-icons">
+        <a href="#"><img src="./home.png" alt="Home" /></a>
+        <a href="#"><img src="./share.png" alt="Share" /></a>
+        <a href="#"><img src="./heart.png" alt="Favourite" /></a>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <h3>Find Us</h3>
+      <p>123 Celebration Street,<br />Event City, India</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.9869297039337!2d72.87765561490352!3d19.07609088709217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce7b0f3eb5a7%3A0x6e4c7f2bc9c1c6e2!2sBandra%20Kurla%20Complex!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+        width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <p class="copyright">© 2025 Planurise. All Rights Reserved.</p>
+</footer>
+
+
+
+
+
+
+  <!-- Footer -->
+  <!-- Your existing footer code remains same -->
+
+</body>
+</html>

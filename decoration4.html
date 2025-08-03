@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planurise</title>
+  <link rel="stylesheet" href="sidebar.css" />
+  <link rel="stylesheet" href="decoration.css">
+    <link rel="stylesheet" href="header.css" />
+    <script src="home.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+    <nav class="header">
+        <div class="nav-left">
+            <img class="logo_img" src="logo.png" alt="logo">
+            <div class="logo">Planurise</div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="nav-right desktop-nav">
+            <div class="nav-item">
+                <a href="index.html" class="no-underline ">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+            </div>
+            <div class="nav-item">
+                <a href="packages.html" class="no-underline">Packages</a>
+            </div>
+            <div class="nav-item">
+                <a href="Guest.html" class="no-underline">Guest Manager</a>
+            </div>
+            <div class="nav-item">
+                <a href="my_events.html" class="no-underline">My events</a>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="no-underline">About us</a>
+            </div>
+            <div class="user">
+                <a href="profile.html" class="no-underline">
+                    <img class="profile-img" src="img/profile.jpg" alt="Profile">
+                </a>
+            </div>
+        </div>
+
+        <button class="menu-bar" onclick="openSidebar()">☰</button>
+    </nav>
+
+    <!-- Sidebar for Mobile/Tablet -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-icon" onclick="closeSidebar()">X</div>
+        <div class="options">
+            <a href="index.html" class="no-underline active">Home</a>
+            <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+            <a href="packages.html" class="no-underline">Packages</a>
+            <a href="Guest.html" class="no-underline">Guest Manager</a>
+            <a href="my_events.html" class="no-underline">My events</a>
+            <a href="about.html" class="no-underline">About us</a>
+            <a href="profile.html" class="no-underline">Profile</a>
+        </div>
+    </div>
+    </body>
+    
+
+<!-- Desktop Sidebar -->
+<nav class="desktop-sidebar-nav">
+    <div class="sidebar-link"><a href="plan_ur_event4.html" class="sidebar-link-text active">Home</a></div>
+    <div class="sidebar-link"><a href="vizag.html" class="sidebar-link-text">Venue</a></div>
+    <div class="sidebar-link"><a href="decoration4.html" class="sidebar-link-text">Decoration</a></div>
+    <div class="sidebar-link"><a href="food4.html" class="sidebar-link-text">Food</a></div>
+    <div class="sidebar-link"><a href="photography4.html" class="sidebar-link-text">Photography</a></div>
+    <div class="sidebar-link"><a href="entertainment4.html" class="sidebar-link-text">Entertainment</a></div>
+
+    <!-- Image + Quote Section -->
+    <div class="sidebar-image-quote">
+        <img src="https://i.pinimg.com/736x/1a/30/32/1a3032292b203a0c78006bb703dbf6fe.jpg" alt="Wedding" />
+        <p class="quote-text">“Make memories, not just plans.”</p>
+    </div>
+</nav>
+
+<!-- Mobile Hamburger Icon -->
+<button class="mobile-menu-btn" onclick="openSidebarMenu()">&#9776;</button>
+
+<!-- Sidebar for Mobile -->
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="mobile-close" onclick="closeSidebarMenu()">✖</div>
+    <div class="mobile-options">
+       <div class="sidebar-link"><a href="plan_ur_event4.html" class="sidebar-link-text active">Home</a></div>
+    <div class="sidebar-link"><a href="vizag.html" class="sidebar-link-text">Venue</a></div>
+    <div class="sidebar-link"><a href="decoration4.html" class="sidebar-link-text">Decoration</a></div>
+    <div class="sidebar-link"><a href="food4.html" class="sidebar-link-text">Food</a></div>
+    <div class="sidebar-link"><a href="photography4.html" class="sidebar-link-text">Photography</a></div>
+    <div class="sidebar-link"><a href="entertainment4.html" class="sidebar-link-text">Entertainment</a></div>
+    </div>
+</div>
+   <section>
+   <div class="section-heading">
+     <a href="previous-page.html" class="prev-btn">Prev</a>
+      <h1>DECORATION</h1>
+       <a href="food4.html" class="next-button">Next</a>
+    </div>
+  <div class="grids">
+
+      <div class="card" data-cost="10000" data-category="decoration">
+  <img src="https://i.pinimg.com/1200x/b2/6b/8a/b26b8a01165d7b46e999eb027357ca70.jpg" alt="Rustic Charm">
+  <h3>Rustic Charm</h3>
+  <div class="stars">★★★★★</div>
+  <p class="price">₹10,000</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+<div class="card" data-cost="6500" data-category="decoration">
+  <img src="https://i.pinimg.com/1200x/cf/c2/31/cfc2318231151ea7776e6609a2eddb1f.jpg" alt="Color Carnival">
+  <h3>Color Carnival</h3>
+  <div class="stars">★★★☆☆</div>
+  <p class="price">₹6,500</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+    <div class="card" data-cost="9500" data-category="decoration">
+  <img src="https://i.pinimg.com/736x/91/65/13/916513cd75ce535f2f1266d376ff6bd1.jpg" alt="Vintage Lights">
+  <h3>Vintage Lights</h3>
+  <div class="stars">★★★★☆</div>
+  <p class="price">₹9,500</p>
+  <button class="book-btn" >Book Now</button>
+</div>
+
+<div class="card" data-cost="11000" data-category="decoration">
+  <img src="https://i.pinimg.com/1200x/b6/f2/f5/b6f2f5d641b58dbd2c39756332a4b651.jpg" alt="Garden Bliss">
+  <h3>Garden Bliss</h3>
+  <div class="stars">★★★★★</div>
+  <p class="price">₹11,000</p>
+  <button class="book-btn" >Book Now</button>
+</div>
+
+<div class="card" data-cost="13000" data-category="decoration">
+  <img src="https://i.pinimg.com/736x/7e/53/e1/7e53e14a4537323132078731e028f523.jpg" alt="Golden Glitz">
+  <h3>Golden Glitz</h3>
+  <div class="stars">★★★★★</div>
+  <p class="price">₹13,000</p>
+  <button class="book-btn" >Book Now</button>
+</div>
+
+<div class="card" data-cost="7800" data-category="decoration">
+  <img src="https://i.pinimg.com/1200x/78/6b/03/786b035fcb9a5952fb81491fce930267.jpg" alt="Boho Vibe">
+  <h3>Boho Vibe</h3>
+  <div class="stars">★★★☆☆</div>
+  <p class="price">₹7,800</p>
+  <button class="book-btn" >Book Now</button>
+</div>
+<div class="card" data-cost="8900" data-category="decoration">
+  <img src="https://i.pinimg.com/736x/cc/a0/92/cca092d0c873461826ab8e055626728e.jpg" alt="Peach Garden">
+  <h3>Peach Garden</h3>
+  <div class="stars">★★★★☆</div>
+  <p class="price">₹8,900</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+<div class="card" data-cost="7200" data-category="decoration">
+  <img src="https://i.pinimg.com/736x/45/ce/15/45ce15798d33da871b0e41479ab89cd0.jpg" alt="Rustic Drape">
+  <h3>Rustic Drape</h3>
+  <div class="stars">★★★★☆</div>
+  <p class="price">₹7,200</p>
+  <button class="book-btn">Book Now</button>
+</div>
+<div class="card" data-cost="10400" data-category="decoration">
+  <img src="https://i.pinimg.com/1200x/f9/c7/a2/f9c7a2529fec34da3a9900ee91bf5da3.jpg" alt="Orchid Frame">
+  <h3>Orchid Frame</h3>
+  <div class="stars">★★★★★</div>
+  <p class="price">₹10,400</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+<div class="card" data-cost="8100" data-category="decoration">
+  <img src="https://i.pinimg.com/736x/1b/20/13/1b2013dbc3872f8f4e07c59b0f6bfd13.jpg" alt="Pastel Lights">
+  <h3>Pastel Lights</h3>
+  <div class="stars">★★★☆☆</div>
+  <p class="price">₹8,100</p>
+  <button class="book-btn">Book Now</button>
+</div>
+<div class="card" data-cost="9700" data-category="decoration">
+  <img src="https://i.pinimg.com/1200x/79/45/b6/7945b6107583e98813ca82e1711e637b.jpg" alt="Lavender Luxe">
+  <h3>Lavender Luxe</h3>
+  <div class="stars">★★★★★</div>
+  <p class="price">₹9,700</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+<div class="card" data-cost="6800" data-category="decoration">
+  <img src="https://i.pinimg.com/1200x/27/5c/b7/275cb7accc1311d56abdd195f4462108.jpg" alt="Blossom Arch">
+  <h3>Blossom Arch</h3>
+  <div class="stars">★★★☆☆</div>
+  <p class="price">₹6,800</p>
+  <button class="book-btn">Book Now</button>
+</div>
+ 
+  </section>
+  <button id="budget-btn">₹0</button>
+
+<!-- Budget Popup Modal -->
+<div id="budget-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Total Budget</h2>
+    <ul id="budget-list"></ul>
+    <h3 id="budget-total">Total: ₹0</h3>
+  </div>
+</div>
+<script src="venue.js"></script>
+
+<script src="header.js"></script>
+<script>
+function openSidebarMenu() {
+    document.getElementById("mobileSidebar").style.left = "0px";
+}
+function closeSidebarMenu() {
+    document.getElementById("mobileSidebar").style.left = "-230px";
+}
+</script>
+</body>
+</html>

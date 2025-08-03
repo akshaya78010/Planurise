@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(164,119,85) ;
+    color: white;
+    position: sticky;
+    top: 0;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo_img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight:900;
+    font-family: "Playwrite AU NSW", cursive;
+}
+
+
+.nav-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.nav-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.no-underline {
+    text-decoration: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.no-underline:hover {
+    background: rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    color:rgb(250, 212, 105);
+}
+
+
+.no-underline.active{
+    color:#FAE29C;
+}
+
+.profile-img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.menu-bar {
+    display: none;
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-icon {
+    font-size: 24px;
+    color: white;
+    text-align: right;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.options a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    transition: background 0.3s, color 0.3s;
+}
+
+.options a:hover {
+    background: rgba(255,255,255,0.2);
+    color:rgb(250, 212, 105);
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    .menu-bar {
+        display: block;
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -230px;
+    width: 230px;
+    /* background: linear-gradient(to bottom, #ff3ad4, #ff0062); */
+    background-color: rgba(164,119,85);
+    box-shadow: -2px 0 15px rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+    transition: right 0.4s ease;
+    border-radius: 0 0 0 12px;
+    padding-top: 10px;
+    z-index: 20;
+}
+
+.close-icon {
+    font-size: 24px;
+    color: white;
+    text-align: right;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.options a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    transition: background 0.3s, color 0.3s;
+}
+
+.options a:hover {
+    background: rgba(255,255,255,0.1);
+    color:rgb(250, 212, 105);
+}

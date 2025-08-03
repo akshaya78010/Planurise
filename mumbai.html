@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="venue.css">
+   
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  
+                <nav class="header">
+        <div class="nav-left">
+            <img class="logo_img" src="logo.png" alt="logo">
+            <div class="logo">Planurise</div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="nav-right desktop-nav">
+            <div class="nav-item">
+                <a href="index.html" class="no-underline ">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+            </div>
+            <div class="nav-item">
+                <a href="packages.html" class="no-underline">Packages</a>
+            </div>
+            <div class="nav-item">
+                <a href="Guest.html" class="no-underline">Guest Manager</a>
+            </div>
+            <div class="nav-item">
+                <a href="my_events.html" class="no-underline">My events</a>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="no-underline">About us</a>
+            </div>
+            <div class="user">
+                <a href="profile.html" class="no-underline">
+                    <img class="profile-img" src="img/profile.jpg" alt="Profile">
+                </a>
+            </div>
+        </div>
+
+        <button class="menu-bar" onclick="openSidebar()">☰</button>
+    </nav>
+
+    <!-- Sidebar for Mobile/Tablet -->
+    <div class="sidebar" id="sidebar">
+             <div class="options">
+  <div class="sidebar-link"><a href="header.html" class="sidebar-link-text ">Home</a></div>
+    <div class="sidebar-link"><a href="plan_ur_event.html" class="sidebar-link-text active">Plan your Event</a></div>
+    <div class="sidebar-link"><a href="packages.html" class="sidebar-link-text">Packages</a></div>
+    <div class="sidebar-link"><a href="Guest.html" class="sidebar-link-text">Guest Manager</a></div>
+    <div class="sidebar-link"><a href="My_events.html" class="sidebar-link-text">My events</a></div>
+    <div class="sidebar-link"><a href="about.html" class="sidebar-link-text">About us</a></div>
+    </div>
+    </div>
+        
+     <nav class="desktop-sidebar-nav">
+          <div class="options">
+  <div class="sidebar-link"><a href="#"  onclick="PlanEvent()"  class="sidebar-link-text ">Details</a></div>
+    <div class="sidebar-link"><a href="#"  class="sidebar-link-text active">Venue</a></div>
+    <div class="sidebar-link"><a href="#"   onclick="goToDecoration()" class="sidebar-link-text">Decoration</a></div>
+    <div class="sidebar-link"><a href="#" onclick="goToFood()" class="sidebar-link-text">Food</a></div>
+    <div class="sidebar-link"><a href="#" onclick="goToPhotography()"  class="sidebar-link-text">Photography</a></div>
+    <div class="sidebar-link"><a href="#" onclick="goToEntertainment()" class="sidebar-link-text">Entertainment</a></div>
+
+    <!-- Image + Quote Section -->
+    <div class="sidebar-image-quote">
+        <img src="https://i.pinimg.com/1200x/81/a8/d3/81a8d347b14368e002b041e9135918f2.jpg" alt="Wedding" />
+        <p class="quote-text">“Make memories, not just plans.”</p>
+    </div>
+</nav>
+
+<!-- Mobile Hamburger Icon -->
+<button class="mobile-menu-btn" onclick="openSidebarMenu()">&#9776;</button>
+
+<!-- Sidebar for Mobile -->
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="mobile-close" onclick="closeSidebarMenu()">✖</div>
+    <div class="mobile-options">
+        <a href="#"  onclick="PlanEvent()"  class="sidebar-link-text">Details</a>
+        <a href="#" class="sidebar-link-text active">Venue</a>
+        <a href="#"  onclick="goToDecoration()" class="sidebar-link-text">Decoration</a>
+        <a href="#"  onclick="goToFood()" class="sidebar-link-text">Food</a>
+        <a href="#"   onclick="goToPhotography()"  class="sidebar-link-text">Photography</a>
+        <a href="#" onclick="goToEntertainment()" class="sidebar-link-text">Entertainment</a>
+    </div>
+    </div>
+
+   <section>
+   <div class="section-heading">
+    <a href="#" onclick="PlanEvent()" class="prev-btn">Prev</a>
+      <h1>VENUE</h1>
+       <a href="#" onclick="goToDecoration()" class="next-button">Next</a>
+   </div>
+
+
+    <div class="grids">
+
+    <div class="card" data-cost="35000" data-category="venue">
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=60" alt="Sunset Valley">
+  <h3>Sunset Valley</h3>
+  <p class="address"> Colaba, Mumbai</p>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹35,000</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+<div class="card" data-cost="18000" data-category="venue">
+  <img src="https://images.unsplash.com/photo-1559910369-3924e235c1cf?q=80&w=1179&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Starlight Arena">
+  <h3>Starlight Arena</h3>
+  <p class="address">Worli, Mumbai</p>
+  <div class="stars">⭐⭐⭐☆☆</div>
+  <p class="price">₹18,000</p>
+  <button class="book-btn">Book Now</button>
+</div>
+<!-- Converted Card 1 -->
+<div class="card" data-cost="25000" data-category="venue">
+  <img src="https://images.unsplash.com/photo-1691337665681-8260beaefee4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGVsZWdhbnQlMjBnYXJkZW4lMjBoYWxsfGVufDB8fDB8fHww" alt="Elegant Garden Hall">
+  <h3>Elegant Garden Hall</h3>
+  <p class="address"> Lower Parel, Mumbai</p>
+  <div class="stars">⭐⭐⭐⭐☆</div>
+  <p class="price">₹25,000</p>
+  <button class="book-btn" >Book Now</button>
+</div>
+
+<!-- Converted Card 2 -->
+<div class="card" data-cost="40000" data-category="venue">
+  <img src="https://plus.unsplash.com/premium_photo-1746327707391-d095ac370b9c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Oceanview Resort">
+  <h3>Oceanview Resort</h3>
+  <p class="address">Parel, Mumbai</p>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹40,000</p>
+  <button class="book-btn" >Book Now</button>
+</div>
+
+<!-- Converted Card 3 -->
+<div class="card" data-cost="30000" data-category="venue">
+  <img src="https://images.unsplash.com/photo-1679234417190-9c443548a40c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTExfHxyb3lhbCUyMGJhbnF1ZXQlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Royal Banquet">
+  <h3>Royal Banquet</h3>
+  <p class="address"> Santacruz East, Mumbai</p>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹30,000</p>
+  <button class="book-btn" >Book Now</button>
+</div>
+<!-- Card 3 -->
+<div class="card" data-cost="18500" data-category="venue">
+  <img src="https://plus.unsplash.com/premium_photo-1733342441106-96a5e23b2c9f?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2VkZGluZyUyMHZlbnVlcyUyMCUyMGJ1aWxkaW5ncyUyMHN1bnNldCUyMHBhbGFjZXxlbnwwfHwwfHx8MA%3D%3D" alt="Sunset Palace">
+  <h3>Sunset Palace</h3>
+  <p class="address"> Worli Sea Face, Mumbai</p>
+  <div class="stars">⭐⭐⭐☆☆</div>
+  <p class="price">₹18,500</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+<!-- Card 5 -->
+<div class="card" data-cost="15000" data-category="venue">
+  <img src="https://plus.unsplash.com/premium_photo-1664530452329-42682d3a73a7?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2xhc3NpYyUyMHdlZGRpbmclMjBoYWxsfGVufDB8fDB8fHww" alt="Classic Wedding Hall">
+  <h3>Classic Wedding Hall</h3>
+  <p class="address">Andheri West, Mumbai</p>
+  <div class="stars">⭐⭐⭐☆☆</div>
+  <p class="price">₹15,000</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+<div class="card" data-cost="50000" data-category="venue">
+  <img src="https://plus.unsplash.com/premium_photo-1713991088871-614d45da7fdb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2VkZGluZyUyMGJ1aWxkaW5ncyUyMGdhcmRlbiUyMHBhcmtzfGVufDB8fDB8fHww" alt="The Grand Park">
+  <h3>The Grand Park</h3>
+  <p class="address">Malad West, Mumbai</p>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹50,000</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+<!-- Card 6 -->
+<div class="card" data-cost="28000" data-category="venue">
+  <img src="https://media.istockphoto.com/id/182754198/photo/meeting-room.jpg?s=612x612&w=0&k=20&c=oM7_uLi_p-RNOuCLlheWo7eGoh5bSqylsYuU1V7fR5A=" alt="Elite Banquets">
+  <h3>Elite Banquets</h3>
+  <p class="address">Bandra East, Mumbai</p>
+  <div class="stars">⭐⭐⭐⭐☆</div>
+  <p class="price">₹28,000</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+<!-- Card 7 -->
+<div class="card" data-cost="20500" data-category="venue">
+  <img src="https://plus.unsplash.com/premium_photo-1681841713733-7b5d6cb95137?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8R3JlZW4lMjBsZWFmJTIwZ2FyZGVucyUyMHZlbnVlJTIwZm9yJTIwd2VkZGluZ3MlMjB3aXRoJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D" alt="Green Leaf Gardens">
+  <h3>Green Leaf Gardens</h3>
+  <p class="address">Andheri East, Mumbai</p>
+  <div class="stars">⭐⭐⭐⭐☆</div>
+  <p class="price">₹20,500</p>
+  <button class="book-btn">Book Now</button>
+</div>
+  
+
+<!-- Card 8 -->
+<div class="card" data-cost="28000" data-category="venue">
+  <img src="https://images.unsplash.com/photo-1628739348517-d460482bc46d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJveWFsJTIwb3JjaGlkJTIwaGFsbCUyMGJ1aWxkaW5nfGVufDB8fDB8fHww" alt="Royal Orchid Hall">
+  <h3>Royal Orchid Hall</h3>
+  <p class="address">Moses Road, Worli, Mumbai</p>
+  <div class="stars">⭐⭐⭐⭐☆</div>
+  <p class="price">₹28,000</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+
+<!-- Card 9 -->
+<div class="card" data-cost="42000" data-category="venue">
+  <img src="https://plus.unsplash.com/premium_photo-1661876993697-24bc7408a0a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fGJ1aWxkaW5ncyUyMHZlbnVlcyUyMGZvciUyMGV2ZW50c3xlbnwwfHwwfHx8MA%3D%3D" alt="Meadow Breeze">
+  <h3>Meadow Breeze</h3>
+  <p class="address"> Andheri West, Mumbai</p>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹42,000</p>
+  <button class="book-btn">Book Now</button>
+</div>
+
+    </div> 
+ 
+    </section>
+<button id="budget-btn">₹0</button>
+
+<!-- Budget Popup Modal -->
+<div id="budget-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Total Budget</h2>
+    <ul id="budget-list"></ul>
+    <h3 id="budget-total">Total: ₹0</h3>
+  </div>
+</div>
+<script src="venue.js"></script>
+<script src="header.js"></script>
+<script>
+
+    function openSidebar() {
+    document.getElementById("sidebar").style.right = "0";
+}
+function closeSidebar() {
+    document.getElementById("sidebar").style.right = "-230px";
+}
+function openSidebarMenu() {
+    document.getElementById("mobileSidebar").style.left = "0px";
+}
+function closeSidebarMenu() {
+    document.getElementById("mobileSidebar").style.left = "-230px";
+}
+</script>
+  
+<script>
+  function goToDecoration() {
+    const selectedEvent = localStorage.getItem("selectedEvent");
+
+    if (selectedEvent === "wedding") {
+      window.location.href = "decoration1.html";
+    } else if (selectedEvent === "birthday") {
+      window.location.href = "decoration2.html";
+    } 
+    else if (selectedEvent === "babyshower") {
+      window.location.href = "decoration3.html";
+    } 
+    else if (selectedEvent === "farewell") {
+      window.location.href = "decoration4.html";
+    } 
+    else if (selectedEvent === "corporate_event") {
+      window.location.href = "decoration5.html";
+    } 
+    else if (selectedEvent === "college_event") {
+      window.location.href = "decoration6.html";
+    } 
+    else {
+      alert("Event type not selected.");
+    }
+  }
+  function PlanEvent() {
+    const selectedEvent = localStorage.getItem("selectedEvent");
+
+    if (selectedEvent === "wedding") {
+      window.location.href = "plan_ur_event1.html";
+    } else if (selectedEvent === "birthday") {
+      window.location.href = "plan_ur_event2.html";
+    } 
+    else if (selectedEvent === "babyshower") {
+      window.location.href = "plan_ur_event3.html";
+    } 
+    else if (selectedEvent === "farewell") {
+      window.location.href = "plan_ur_event4.html";
+    } 
+    else if (selectedEvent === "corporate_event") {
+      window.location.href = "plan_ur_event5.html";
+    } 
+    else if (selectedEvent === "college_event") {
+      window.location.href = "plan_ur_event6.html";
+    } 
+    else {
+      alert("Event type not selected.");
+    }
+  }
+  function goToPhotography() {
+    const selectedEvent = localStorage.getItem("selectedEvent");
+
+    if (selectedEvent === "wedding") {
+      window.location.href = "photography1.html";
+    } else if (selectedEvent === "birthday") {
+      window.location.href = "photography2.html";
+    } 
+    else if (selectedEvent === "babyshower") {
+      window.location.href = "photography3.html";
+    } 
+    else if (selectedEvent === "farewell") {
+      window.location.href = "photography4.html";
+    } 
+    else if (selectedEvent === "corporate_event") {
+      window.location.href = "photography5.html";
+    } 
+    else if (selectedEvent === "college_event") {
+      window.location.href = "photography6.html";
+    } 
+    else {
+      alert("Event type not selected.");
+    }
+  }
+   function goToFood() {
+    const selectedEvent = localStorage.getItem("selectedEvent");
+
+    if (selectedEvent === "wedding") {
+      window.location.href = "food1.html";
+    } else if (selectedEvent === "birthday") {
+      window.location.href = "food2.html";
+    } 
+    else if (selectedEvent === "babyshower") {
+      window.location.href = "food3.html";
+    } 
+    else if (selectedEvent === "farewell") {
+      window.location.href = "food4.html";
+    } 
+    else if (selectedEvent === "corporate_event") {
+      window.location.href = "food5.html";
+    } 
+    else if (selectedEvent === "college_event") {
+      window.location.href = "food6.html";
+    } 
+    else {
+      alert("Event type not selected.");
+    }
+  }
+  function goToEntertainment() {
+    const selectedEvent = localStorage.getItem("selectedEvent");
+
+    if (selectedEvent === "wedding") {
+      window.location.href = "entertainment1.html";
+    } else if (selectedEvent === "birthday") {
+      window.location.href = "entertainment2.html";
+    } 
+    else if (selectedEvent === "babyshower") {
+      window.location.href = "entertainment3.html";
+    } 
+    else if (selectedEvent === "farewell") {
+      window.location.href = "entertainment4.html";
+    } 
+    else if (selectedEvent === "corporate_event") {
+      window.location.href = "entertainment5.html";
+    } 
+    else if (selectedEvent === "college_event") {
+      window.location.href = "entertainment6.html";
+    } 
+    else {
+      alert("Event type not selected.");
+    }
+  }
+  
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="header.css"/>
+    <link rel="stylesheet" href="sidebar.css"/>
+    <link rel="stylesheet " href="plan_ur_event_home.css"/>
+</head>
+<body>
+   <nav class="header">
+        <div class="nav-left">
+            <img class="logo_img" src="logo.png" alt="logo">
+            <div class="logo">Planurise</div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="nav-right desktop-nav">
+            <div class="nav-item">
+                <a href="index.html" class="no-underline ">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+            </div>
+            <div class="nav-item">
+                <a href="packages.html" class="no-underline">Packages</a>
+            </div>
+            <div class="nav-item">
+                <a href="Guest.html" class="no-underline">Guest Manager</a>
+            </div>
+            <div class="nav-item">
+                <a href="my_events.html" class="no-underline">My events</a>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="no-underline">About us</a>
+            </div>
+            <div class="user">
+                <a href="profile.html" class="no-underline">
+                    <img class="profile-img" src="https://cdn.pixabay.com/photo/2025/05/02/15/58/flower-girl-9574211_1280.jpg " alt="Profile">
+                </a>
+            </div>
+        </div>
+
+        <button class="menu-bar" onclick="openSidebar()">☰</button>
+    </nav>
+
+    <!-- Sidebar for Mobile/Tablet -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-icon" onclick="closeSidebar()">X</div>
+        <div class="options">
+            <a href="index.html" class="no-underline ">Home</a>
+            <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+            <a href="packages.html" class="no-underline">Packages</a>
+            <a href="Guest.html" class="no-underline">Guest Manager</a>
+            <a href="my_events.html" class="no-underline">My events</a>
+            <a href="about.html" class="no-underline">About us</a>
+            <a href="profile.html" class="no-underline">Profile</a>
+        </div>
+    </div>
+        
+     <nav class="desktop-sidebar-nav">
+       <div class="sidebar-link"><a href="#" class="sidebar-link-text active ">Details</a></div>
+    <div class="sidebar-link"><a href="#" class="sidebar-link-text ">Venue</a></div>
+    <div class="sidebar-link"><a href="#" class="sidebar-link-text">Decoration</a></div>
+    <div class="sidebar-link"><a href="#" class="sidebar-link-text">Food</a></div>
+    <div class="sidebar-link"><a href="#" class="sidebar-link-text">Photography</a></div>
+    <div class="sidebar-link"><a href="#" class="sidebar-link-text">Entertainment</a></div>
+
+    <!-- Image + Quote Section -->
+    <div class="sidebar-image-quote">
+        <img src="https://i.pinimg.com/1200x/03/ab/03/03ab03d3d4ddc645134259c0e31dbe11.jpg" alt="Wedding" />
+        <p class="quote-text">“Make memories, not just plans.”</p>
+    </div>
+</nav>
+
+<!-- Mobile Hamburger Icon -->
+<button class="mobile-menu-btn" onclick="openSidebarMenu()">&#9776;</button>
+
+<!-- Sidebar for Mobile -->
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="mobile-close" onclick="closeSidebarMenu()">✖</div>
+    <div class="mobile-options">
+  <div class="sidebar-link"><a href="#" class="sidebar-link-text active">Details</a></div>
+    <div class="sidebar-link"><a href="#" class="sidebar-link-text">Venue</a></div>
+    <div class="sidebar-link"><a href="#" class="sidebar-link-text">Decoration</a></div>
+    <div class="sidebar-link"><a href="#" class="sidebar-link-text">Food</a></div>
+    <div class="sidebar-link"><a href="#" class="sidebar-link-text">Photography</a></div>
+    <div class="sidebar-link"><a href="#" class="sidebar-link-text">Entertainment</a></div>
+    </div>
+    </div>
+    <section>
+    
+  
+  
+   <div class="section-heading">
+      <h1>CORPORATE EVENT</h1>
+      <!-- <button class="next-button">Next</button> -->
+    </div>
+     <form  id="locationForm" class="wedding-form">
+        <!-- <label>Type</label>
+       <select >
+        <option>Choose your Type</option>
+        <option>Beach Wedding</option>
+        <option>Destination Wedding</option>
+        <option>Traditional Wedding</option>
+       </select><br> -->
+        <label>Location</label>
+         <select id="locationInput">
+        <option value="">Choose your Location</option>
+        <option value="kakinada">Kakinada</option>
+        <option value="vizag">Vizag</option>
+        <option value="hyderabad">Hyderabad</option>
+        <option value="mumbai">Mumbai</option>
+    </select><br>
+        <label>Guest Count</label>
+        <input type="number" required/><br>
+        <label>Budget</label>
+        <input type="number" required/><br>
+         <label>Event Date</label>
+    <input type="date" id="eventdate" required/><br>
+        <button  class="submit-button" type="submit"> Submit </button>
+
+     </form>
+    </section>
+    <script>
+        
+    function openSidebar() {
+    document.getElementById("sidebar").style.right = "0";
+}
+function closeSidebar() {
+    document.getElementById("sidebar").style.right = "-230px";
+}
+function openSidebarMenu() {
+    document.getElementById("mobileSidebar").style.left = "0px";
+}
+function closeSidebarMenu() {
+    document.getElementById("mobileSidebar").style.left = "-230px";
+}
+  document.getElementById("locationForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const location = document.getElementById("locationInput").value.trim().toLowerCase();
+    const allowedLocations = ["vizag", "hyderabad", "mumbai", "kakinada"];
+
+    if (!allowedLocations.includes(location)) {
+      alert("Location not supported.");
+      return;
+    }
+
+    // Redirect to the location-specific page
+    window.location.href = `${location}.html`;
+  });
+    window.onload = function () {
+    const dateInput = document.getElementById("eventDate");
+    const today = new Date().toISOString().split("T")[0];
+    dateInput.setAttribute("min", today);
+};
+</script>
+
+    
+</body>
+</html>

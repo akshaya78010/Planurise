@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <link rel="stylesheet" href="food.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="sidebar.css">
+     <script src="home.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+</head>
+<body>
+ <nav class="header">
+        <div class="nav-left">
+            <img class="logo_img" src="logo.png" alt="logo">
+            <div class="logo">Planurise</div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="nav-right desktop-nav">
+            <div class="nav-item">
+                <a href="index.html" class="no-underline ">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+            </div>
+            <div class="nav-item">
+                <a href="packages.html" class="no-underline">Packages</a>
+            </div>
+            <div class="nav-item">
+                <a href="Guest.html" class="no-underline">Guest Manager</a>
+            </div>
+            <div class="nav-item">
+                <a href="my_events.html" class="no-underline">My events</a>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="no-underline">About us</a>
+            </div>
+            <div class="user">
+                <a href="profile.html" class="no-underline">
+                    <img class="profile-img" src="https://cdn.pixabay.com/photo/2025/05/02/15/58/flower-girl-9574211_1280.jpg " alt="Profile">
+                </a>
+            </div>
+        </div>
+
+        <button class="menu-bar" onclick="openSidebar()">☰</button>
+    </nav>
+
+    <!-- Sidebar for Mobile/Tablet -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-icon" onclick="closeSidebar()">X</div>
+        <div class="options">
+            <a href="index.html" class="no-underline active">Home</a>
+            <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+            <a href="packages.html" class="no-underline">Packages</a>
+            <a href="Guest.html" class="no-underline">Guest Manager</a>
+            <a href="my_events.html" class="no-underline">My events</a>
+            <a href="about.html" class="no-underline">About us</a>
+            <a href="profile.html" class="no-underline">Profile</a>
+        </div>
+    </div>
+        
+     <nav class="desktop-sidebar-nav">
+      <div class="sidebar-link"><a href="plan_ur_event1.html" class="sidebar-link-text">Details</a></div>
+    <div class="sidebar-link"><a href="vizag.html" class="sidebar-link-text">Venue</a></div>
+    <div class="sidebar-link"><a href="decoration1.html" class="sidebar-link-text">Decoration</a></div>
+    <div class="sidebar-link"><a href="food1.html" class="sidebar-link-text active">Food</a></div>
+    <div class="sidebar-link"><a href="photography1.html" class="sidebar-link-text">Photography</a></div>
+    <div class="sidebar-link"><a href="entertainment1.html" class="sidebar-link-text">Entertainment</a></div>
+
+    <!-- Image + Quote Section -->
+    <div class="sidebar-image-quote">
+        <img src="https://i.pinimg.com/1200x/5b/e2/c3/5be2c3466d1ca0757960ecb06e3f0ee2.jpg" alt="Wedding" />
+        <p class="quote-text">“Make memories, not just plans.”</p>
+    </div>
+</nav>
+
+<!-- Mobile Hamburger Icon -->
+<button class="mobile-menu-btn" onclick="openSidebarMenu()">&#9776;</button>
+
+<!-- Sidebar for Mobile -->
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="mobile-close" onclick="closeSidebarMenu()">✖</div>
+    <div class="mobile-options">
+    <div class="sidebar-link"><a href="plan_ur_event1.html" class="sidebar-link-text">Details</a></div>
+    <div class="sidebar-link"><a href="vizag.html" class="sidebar-link-text">Venue</a></div>
+    <div class="sidebar-link"><a href="decoration1.html" class="sidebar-link-text">Decoration</a></div>
+    <div class="sidebar-link"><a href="food1.html" class="sidebar-link-text active">Food</a></div>
+    <div class="sidebar-link"><a href="photography1.html" class="sidebar-link-text">Photography</a></div>
+    <div class="sidebar-link"><a href="entertainment1.html" class="sidebar-link-text">Entertainment</a></div>
+    </div>
+    </div>
+
+   <section>
+
+   <div class="section-heading">
+     <a href="decoration1.html" class="prev-btn">Prev</a>
+      <h1>Food</h1>
+       <a href="photography1.html" class="next-button">Next</a>
+    </div>
+
+     <div class="food-section">
+  <h2>Starters</h2>
+  <div class="scroll-container">
+<!-- Card 1 -->
+<div class="card" data-cost="150">
+  <img src="https://i.pinimg.com/1200x/22/90/59/22905909c24dd0d1cfa8695de86b57cb.jpg" alt="Paneer Tikka">
+  <h3>Paneer Tikka</h3>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹150</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 2 -->
+<div class="card" data-cost="120">
+  <img src="https://i.pinimg.com/736x/35/ee/16/35ee16c7410ae1f11d73d11d521db685.jpg" alt="Veg Manchurian">
+  <h3>Veg Manchurian</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹120</p>
+  <button class="book-btn">Add</button>
+</div>
+<!-- Card 3 -->
+<div class="card" data-cost="100">
+  <img src="https://i.pinimg.com/1200x/cf/4d/81/cf4d8152ed7184adbd029d3f1dc6f13c.jpg" alt="Spring Rolls">
+  <h3>Spring Rolls</h3>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹100</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 4 -->
+<div class="card" data-cost="130">
+  <img src="https://i.pinimg.com/1200x/aa/e3/44/aae3446c1d4883b60591e93d6f3a905c.jpg" alt="Chilli Paneer">
+  <h3>Chilli Paneer</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹130</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 5 -->
+<div class="card" data-cost="110">
+  <img src="https://i.pinimg.com/1200x/06/19/c0/0619c0d77df86a69e2bd47684e3bfb0a.jpg" alt="Gobi 65">
+  <h3>Gobi 65</h3>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹110</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 6 -->
+<div class="card" data-cost="140">
+  <img src="https://i.pinimg.com/1200x/2f/cf/66/2fcf66ac92b4cbf6be2227f7dc6ca55a.jpg" alt="Tandoori Mushroom">
+  <h3>Tandoori Mushroom</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹140</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 7 -->
+<div class="card" data-cost="125">
+  <img src="https://i.pinimg.com/736x/cd/16/d8/cd16d876a898b8683f386f3ac7cf8f7f.jpg" alt="Baby Corn Crispy">
+  <h3>Baby Corn Crispy</h3>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹125</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 8 -->
+<div class="card" data-cost="135">
+  <img src="https://i.pinimg.com/1200x/ea/eb/f0/eaebf0b69518035c2c53b9069a952b97.jpg" alt="Corn Cheese Balls">
+  <h3>Corn Cheese Balls</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹135</p>
+  <button class="book-btn">Add</button>
+</div>
+
+  </div>
+  <div class="food-section">
+  <h2>Curries</h2>
+  <div class="scroll-container">
+    
+   <!-- Card 9 -->
+<div class="card" data-cost="180">
+  <img src="https://i.pinimg.com/1200x/75/25/c2/7525c28b815e93b8f4ad4a3bb889090e.jpg" alt="Paneer Butter Masala">
+  <h3>Paneer Butter Masala</h3>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹180</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 10 -->
+<div class="card" data-cost="200">
+  <img src="https://i.pinimg.com/736x/cd/f8/37/cdf83760b6f38e6a2dd27a5b09c7ae57.jpg" alt="Chicken Curry">
+  <h3>Chicken Curry</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹200</p>
+  <button class="book-btn">Add</button>
+</div>
+
+
+    <!-- Card 11 -->
+<div class="card" data-cost="160">
+  <img src="https://i.pinimg.com/1200x/d5/32/53/d53253638d3f18ac83bd8cd70172e375.jpg" alt="Kadai Veg">
+  <h3>Kadai Veg</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹160</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 12 -->
+<div class="card" data-cost="240">
+  <img src="https://i.pinimg.com/736x/22/26/0a/22260acab33ad32c1073fb10f751a4e3.jpg" alt="Butter Chicken">
+  <h3>Butter Chicken</h3>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹240</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 13 -->
+<div class="card" data-cost="140">
+  <img src="https://i.pinimg.com/1200x/ea/3f/c8/ea3fc80382450b94b65a6ca995f3b013.jpg" alt="Chole Masala">
+  <h3>Chole Masala</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹140</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 14 -->
+<div class="card" data-cost="300">
+  <img src="https://i.pinimg.com/1200x/e4/a3/c2/e4a3c28d4fda89c46ce1d0fccd80352d.jpg" alt="Mutton Rogan Josh">
+  <h3>Mutton Rogan Josh</h3>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹300</p>
+  <button class="book-btn">Add</button>
+</div>
+
+   <!-- Card 15 -->
+<div class="card" data-cost="150">
+  <img src="https://i.pinimg.com/1200x/27/af/72/27af72dad2a8c63253d57bb547b8132a.jpg" alt="Mix Veg Curry">
+  <h3>Mix Veg Curry</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹150</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 16 -->
+<div class="card" data-cost="220">
+  <img src="https://i.pinimg.com/1200x/fd/8b/73/fd8b73357620b9ed1c81a9435450d8e1.jpg" alt="Gongura Chicken">
+  <h3>Gongura Chicken</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹220</p>
+  <button class="book-btn">Add</button>
+</div>
+
+
+  </div>
+</div>
+
+
+<div class="food-section">
+  <h2>Rice Items</h2>
+  <div class="scroll-container">
+
+   <!-- Card 17 -->
+<div class="card" data-cost="130">
+  <img src="https://i.pinimg.com/1200x/3f/e9/da/3fe9dab3b8ab33d4f4cd2456b92d7f26.jpg" alt="Veg Biryani">
+  <h3>Veg Biryani</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹130</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 18 -->
+<div class="card" data-cost="180">
+  <img src="https://i.pinimg.com/1200x/6a/cc/f3/6accf3cefbe7f9779d151e3696018990.jpg" alt="Chicken Biryani">
+  <h3>Chicken Biryani</h3>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹180</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 19 -->
+<div class="card" data-cost="240">
+  <img src="https://i.pinimg.com/1200x/2f/12/95/2f12954240bcf80e9c02f5deb671000f.jpg" alt="Mutton Biryani">
+  <h3>Mutton Biryani</h3>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="price">₹240</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 20 -->
+<div class="card" data-cost="120">
+  <img src="https://i.pinimg.com/1200x/1f/7e/a8/1f7ea8e1428dc52cc7825130dd548292.jpg" alt="Fried Rice">
+  <h3>Fried Rice</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹120</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 21 -->
+<div class="card" data-cost="110">
+  <img src="https://i.pinimg.com/1200x/67/e4/70/67e470550cb9b8d83d5e6908756dc17a.jpg" alt="Jeera Rice">
+  <h3>Jeera Rice</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹110</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 22 -->
+<div class="card" data-cost="90">
+  <img src="https://i.pinimg.com/1200x/b0/b1/03/b0b103a0505c818c0f3bcc0a111a006a.jpg" alt="Curd Rice">
+  <h3>Curd Rice</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹90</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 23 -->
+<div class="card" data-cost="80">
+  <img src="https://i.pinimg.com/1200x/11/30/ea/1130ea3eafc672741a9b1ae0d4784b2a.jpg" alt="Lemon Rice">
+  <h3>Lemon Rice</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹80</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 24 -->
+<div class="card" data-cost="100">
+  <img src="https://i.pinimg.com/736x/d5/9a/2c/d59a2c4ef5a77e6c6ff141405eb1c682.jpg" alt="Ghee Rice">
+  <h3>Ghee Rice</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹100</p>
+  <button class="book-btn">Add</button>
+</div>
+
+
+  </div>
+</div>
+
+<div class="food-section">
+  <h2>Ice Creams</h2>
+  <div class="scroll-container">
+
+   <!-- Card 25 -->
+<div class="card" data-cost="60">
+  <img src="https://i.pinimg.com/736x/17/58/8b/17588bde404baa370330128f97c79b2f.jpg" alt="Vanilla">
+  <h3>Vanilla</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹60</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 26 -->
+<div class="card" data-cost="70">
+  <img src="https://i.pinimg.com/1200x/67/da/be/67dabec3c406c9235e3eafbfa642a102.jpg" alt="Chocolate">
+  <h3>Chocolate</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹70</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 27 -->
+<div class="card" data-cost="65">
+  <img src="https://i.pinimg.com/736x/19/50/ca/1950ca6e9a4abc52749fadf15613cebe.jpg" alt="Strawberry">
+  <h3>Strawberry</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹65</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 28 -->
+<div class="card" data-cost="70">
+  <img src="https://i.pinimg.com/736x/1b/08/9a/1b089a88c8706646a29a3be863a8a6dc.jpg" alt="Butterscotch">
+  <h3>Butterscotch</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹70</p>
+  <button class="book-btn">Add</button>
+</div>
+
+
+    <!-- Card 29 -->
+<div class="card" data-cost="60">
+  <img src="https://i.pinimg.com/736x/c5/30/14/c530145c8d1af7794aece7e5dc82dbae.jpg" alt="Mango">
+  <h3>Mango</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹60</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 30 -->
+<div class="card" data-cost="70">
+  <img src="https://i.pinimg.com/736x/3c/59/3c/3c593c4ff90357ac948b7167a30422be.jpg" alt="Pista">
+  <h3>Pista</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹70</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 31 -->
+<div class="card" data-cost="80">
+  <img src="https://i.pinimg.com/736x/fd/5c/97/fd5c97dbb7bdaa1e8f9754297f13fa07.jpg" alt="Black Currant">
+  <h3>Black Currant</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹80</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 32 -->
+<div class="card" data-cost="75">
+  <img src="https://i.pinimg.com/1200x/3a/1f/7e/3a1f7e933c096af45057a5bbc549f161.jpg" alt="Kulfi">
+  <h3>Kulfi</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹75</p>
+  <button class="book-btn">Add</button>
+</div>
+
+  </div>
+</div>
+
+<div class="food-section">
+  <h2>Desserts</h2>
+  <div class="scroll-container">
+<!-- Card 33 -->
+<div class="card" data-cost="50">
+  <img src="https://i.pinimg.com/736x/a9/3d/77/a93d77d3e242262f2c919bf66aef5b39.jpg" alt="Gulab Jamun">
+  <h3>Gulab Jamun</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹50</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 34 -->
+<div class="card" data-cost="60">
+  <img src="https://i.pinimg.com/736x/03/55/5a/03555afe31b7ca2b9db1dbf0f45a02e6.jpg" alt="Rasgulla">
+  <h3>Rasgulla</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹60</p>
+  <button class="book-btn">Add</button>
+</div>
+<!-- Card 35 -->
+<div class="card" data-cost="70">
+  <img src="https://i.pinimg.com/1200x/93/35/71/9335714b1b3c57d04e04455d5bbc49a1.jpg" alt="Gajar Halwa">
+  <h3>Gajar Halwa</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹70</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 36 -->
+<div class="card" data-cost="40">
+  <img src="https://i.pinimg.com/736x/2e/02/4d/2e024d1f8943fd354b5245c85bfb55ec.jpg" alt="Kesari">
+  <h3>Kesari</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹40</p>
+  <button class="book-btn">Add</button>
+</div>
+
+   <!-- Card 37 -->
+<div class="card" data-cost="65">
+  <img src="https://i.pinimg.com/736x/76/9a/36/769a36478a5de924dec02a30499c48e6.jpg" alt="Basundi">
+  <h3>Basundi</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹65</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 38 -->
+<div class="card" data-cost="55">
+  <img src="https://i.pinimg.com/1200x/54/74/ad/5474ad89f7c64fad15849fd7628242eb.jpg" alt="Phirni">
+  <h3>Phirni</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹55</p>
+  <button class="book-btn">Add</button>
+</div>
+
+    <!-- Card 39 -->
+<div class="card" data-cost="50">
+  <img src="https://i.pinimg.com/736x/eb/f0/0c/ebf00c0df8d033eb4559c63ea9ef9e81.jpg" alt="Jalebi">
+  <h3>Jalebi</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹50</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 40 -->
+<div class="card" data-cost="60">
+  <img src="https://i.pinimg.com/736x/67/de/2c/67de2c01b5932eda96fad72e18009c82.jpg" alt="Kheer">
+  <h3>Kheer</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹60</p>
+  <button class="book-btn">Add</button>
+</div>
+
+
+  </div>
+</div>
+
+<div class="food-section">
+  <h2>Juices</h2>
+  <div class="scroll-container">
+<!-- Card 41 -->
+<div class="card" data-cost="40">
+  <img src="https://i.pinimg.com/736x/1c/7d/22/1c7d2253e07f5fac72e4b6f6c525623e.jpg" alt="Orange Juice">
+  <h3>Orange Juice</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹40</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 42 -->
+<div class="card" data-cost="35">
+  <img src="https://i.pinimg.com/736x/c1/51/ca/c151cabb43f5830ac378f3da27d69f37.jpg" alt="Watermelon Juice">
+  <h3>Watermelon Juice</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹35</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 43 -->
+<div class="card" data-cost="45">
+  <img src="https://i.pinimg.com/736x/52/5d/0b/525d0b62ea336101d4abb424690eeb94.jpg" alt="Mango Juice">
+  <h3>Mango Juice</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹45</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 44 -->
+<div class="card" data-cost="50">
+  <img src="https://i.pinimg.com/1200x/4c/c4/9d/4cc49d102bf1d2a2d3590d5dea3ef19f.jpg" alt="Pineapple Juice">
+  <h3>Pineapple Juice</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹50</p>
+  <button class="book-btn">Add</button>
+</div>
+
+
+   <!-- Card 45 -->
+<div class="card" data-cost="45">
+  <img src="https://i.pinimg.com/736x/2d/61/72/2d617287af2d42bc908645daa48870b8.jpg" alt="Grape Juice">
+  <h3>Grape Juice</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹45</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 46 -->
+<div class="card" data-cost="50">
+  <img src="https://i.pinimg.com/736x/55/55/7a/55557a017b3ac00f143823298c8ea599.jpg" alt="Apple Juice">
+  <h3>Apple Juice</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹50</p>
+  <button class="book-btn">Add</button>
+</div>
+
+
+  <!-- Card 47 -->
+<div class="card" data-cost="40">
+  <img src="https://i.pinimg.com/736x/ec/e3/1e/ece31e46932b0182243194cdf5350ade.jpg" alt="Carrot Juice">
+  <h3>Carrot Juice</h3>
+  <div class="stars">⭐⭐⭐</div>
+  <p class="price">₹40</p>
+  <button class="book-btn">Add</button>
+</div>
+
+<!-- Card 48 -->
+<div class="card" data-cost="55">
+  <img src="https://i.pinimg.com/736x/34/43/bc/3443bc4ae64ac11df93f5acbbe7cbf29.jpg" alt="Mixed Fruit">
+  <h3>Mixed Fruit</h3>
+  <div class="stars">⭐⭐⭐⭐</div>
+  <p class="price">₹55</p>
+  <button class="book-btn">Add</button>
+</div>
+  </div>
+</div>
+  </section>
+  <button id="budget-btn">₹0</button>
+
+<!-- Budget Popup Modal -->
+<div id="budget-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Total Budget</h2>
+    <ul id="budget-list"></ul>
+    <h3 id="budget-total">Total: ₹0</h3>
+  </div>
+</div>
+<script src="venue.js"></script>
+<script src="header.js"></script>
+<script>
+function openSidebarMenu() {
+    document.getElementById("mobileSidebar").style.left = "0px";
+}
+function closeSidebarMenu() {
+    document.getElementById("mobileSidebar").style.left = "-230px";
+}
+</script>
+</body>
+</html>

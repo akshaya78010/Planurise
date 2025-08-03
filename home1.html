@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planurise</title>
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="header.css" />
+  <link rel="stylesheet" href="footer.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+</head>
+<body>
+  <!-- Header -->
+      <nav class="header">
+        <div class="nav-left">
+            <img class="logo_img" src="img/logo.png" alt="logo">
+            <div class="logo">Planurise</div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="nav-right desktop-nav">
+            <div class="nav-item">
+                <a href="home_page.html" class="no-underline active">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+            </div>
+            <div class="nav-item">
+                <a href="packages.html" class="no-underline">Packages</a>
+            </div>
+            <div class="nav-item">
+                <a href="Guest.html" class="no-underline">Guest Manager</a>
+            </div>
+            <div class="nav-item">
+                <a href="My_events.html" class="no-underline">My events</a>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="no-underline">About us</a>
+            </div>
+            <div class="user">
+                <a href="profile.html" class="no-underline">
+                    <img class="profile-img" src="img/profile.jpg" alt="Profile">
+                </a>
+            </div>
+        </div>
+
+        <button class="menu-bar" onclick="openSidebar()">☰</button>
+    </nav>
+
+    <!-- Sidebar for Mobile/Tablet -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-icon" onclick="closeSidebar()">X</div>
+        <div class="options">
+            <a href="home_page.html" class="no-underline active">Home</a>
+            <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+            <a href="packages.html" class="no-underline">Packages</a>
+            <a href="Guest.html" class="no-underline">Guest Manager</a>
+            <a href="my_events.html" class="no-underline">My events</a>
+            <a href="about.html" class="no-underline">About us</a>
+            <a href="profile.html" class="no-underline">Profile</a>
+        </div>
+    </div>  
+
+  <!-- <section class="intro-section" style="background-image: url('https://media.istockphoto.com/id/1132599079/photo/valentine-day-background.jpg?s=2048x2048&w=is&k=20&c=XglTkuUtuw5xrzmXhygAAIdLNZoJWdUYaI4YToaGiHk=');"> -->
+  <section class="intro-section">
+    <div class="intro-overlay">
+      <div class="intro-content">
+        <h1>Planurise</h1>
+        <h3>Plan. Customise. Rise.</h3>
+        <p>"Transform your dream into a memorable celebration."</p>
+        <div class="intro-buttons">
+          <a href="#">Sign Up</a>
+          <a href="#">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Explore Section -->
+<section class="explore-section">
+  <h2 class="explore-title">EXPLORE OUR PLATFORM</h2>
+  <p class="explore-intro">
+    Dive into a seamless event planning journey. Whether it's a wedding, birthday, or corporate event — we offer everything you need under one roof.
+  </p>
+
+  <div class="explore-cards-container">
+    <div class="explore-card">
+      <h3>Plan Your Event</h3>
+      <p>Select everything from event type to food, venue, decor, photographers, and music. Customize each element according to your theme, vision, and budget.</p>
+      <a href="explore1.html" class="explore-link">Explore Now →</a>
+    </div>
+    <div class="explore-card">
+      <h3>Packages</h3>
+      <p>Choose from predefined event packages like birthday, wedding, and corporate with estimated cost ranges. All packages are editable based on your preferences.</p>
+      <a href="mydreamwall.html" class="explore-link">View Packages →</a>
+    </div>
+    <div class="explore-card">
+      <h3>Guest Manager</h3>
+      <p>Maintain a smart guest list. With one click, send SMS or email invites and manage RSVPs with real-time tracking.</p>
+      <a href="community.html" class="explore-link">Manage Guests →</a>
+    </div>
+    <div class="explore-card">
+      <h3>My Events</h3>
+      <p>View your saved, ongoing, and completed events. Edit plans anytime and reuse themes from past celebrations.</p>
+      <a href="Contact_us.html" class="explore-link">Go to My Events →</a>
+    </div>
+    <div class="explore-card">
+      <h3>About Us</h3>
+      <p>We’re a passionate team helping people celebrate their biggest moments stress-free. Contact us for support and queries anytime!</p>
+      <a href="about.html" class="explore-link">Learn More →</a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Features Section -->
+<section class="features-section">
+  <h2 class="features-title">OUR PROCESS</h2>
+  <div class="feature-steps-container">
+    <div class="feature-step">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Goal">
+      <h4>1. Define Your Goal</h4>
+      <p>Set clear expectations and define the type of event you want to organize—wedding, corporate, or casual.</p>
+    </div>
+    <div class="feature-step">
+      <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Notify">
+      <h4>2. Get Instant Alerts</h4>
+      <p>Stay updated with instant notifications on vendor responses, bookings, and upcoming tasks.</p>
+    </div>
+    <div class="feature-step">
+      <img src="https://cdn-icons-png.flaticon.com/512/875/875558.png" alt="Customize">
+      <h4>3. Customize Your Event</h4>
+      <p>Choose themes, decorations, music, and more to create your dream celebration with ease.</p>
+    </div>
+    <div class="feature-step">
+      <img src="https://cdn-icons-png.flaticon.com/512/1827/1827379.png" alt="Track">
+      <h4>4. Track Everything</h4>
+      <p>Monitor schedules, budgets, and vendor activities from one simple dashboard.</p>
+    </div>
+    <div class="feature-step">
+      <img src="https://cdn-icons-png.flaticon.com/512/609/609803.png" alt="Vendor">
+      <h4>5. Connect with Vendors</h4>
+      <p>Find and manage vendors for catering, photography, venues, and more—directly from the platform.</p>
+    </div>
+  </div>
+</section>
+
+  <section class="activities-section">
+  <h2 class="activities-title">Core Event Services</h2>
+  <div class="activities-container">
+    
+    <div class="activity-card">
+      <img src="https://img.pikbest.com/photo/20250204/wedding-rose-decoration-stage-png-image_11494089.jpg!w700wp" alt="Elaborate event decoration with flowers and lights">
+      <h3>Decoration</h3>
+      <p>Stunning themes and floral arrangements to create a magical atmosphere.</p>
+    </div>
+
+      <div class="activity-card">
+      <img src="https://cdn.pixabay.com/photo/2021/12/05/11/22/vinpearl-land-6847412_1280.jpg" alt="Beautifully arranged wedding venue">
+      <h3>Venue Selection</h3>
+      <p>Discover and book the perfect backdrop for your special event from our curated list.</p>
+    </div>
+
+    <div class="activity-card">
+      <img src="https://cdn.pixabay.com/photo/2022/12/16/02/44/food-7658832_1280.jpg" alt="Buffet with a variety of delicious food">
+      <h3>Food & Catering</h3>
+      <p>Exquisite menus and catering services tailored to your taste and preferences.</p>
+    </div>
+
+    <div class="activity-card">
+      <img src="https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="People dancing at a party with a DJ">
+      <h3>Music & Dance</h3>
+      <p>Lively DJ sets, live bands, and choreographers to get the party started.</p>
+    </div>
+  
+     <div class="activity-card">
+      <img src="https://cdn.pixabay.com/photo/2014/07/31/22/50/photographer-407068_1280.jpg" alt="Photographer capturing moments at an event">
+      <h3>Photography</h3>
+      <p>Capturing your cherished moments with professional photos and videography.</p>
+    </div>
+
+  </div>
+</section>
+<section class="video-showcase-section">
+  <h2 class="video-showcase-title">Decoration Showcase</h2>
+  <div class="video-wrapper">
+    <video 
+      src="home/home_video.mp4" 
+      poster="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      autoplay 
+      loop 
+      muted 
+      playsinline>
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay-text">
+      <h3>Bringing Your Vision to Life </h3>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-section">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial-slider">
+    <div class="testimonial-track">
+      <!-- Start of 10 testimonial cards -->
+      <div class="testimonial">
+        <img src="home/happy_profile.jpg" alt="Client 1">
+        <p>"Absolutely magical! Our event was perfect beyond imagination."</p>
+        <div class="stars">★★★★★</div>
+        <h4>Riya Kapoor</h4>
+      </div>
+
+      <div class="testimonial">
+        <img src="home/trek_himalayas.jpg" alt="Client 2">
+        <p>"They turned our vision into a breathtaking reality."</p>
+        <div class="stars">★★★★☆</div>
+        <h4>Arjun Mehta</h4>
+      </div>
+
+      <div class="testimonial">
+        <img src="https://i.pravatar.cc/80?img=16" alt="Client 3">
+        <p>"The decor, the vibe, everything was just perfect!"</p>
+        <div class="stars">★★★★★</div>
+        <h4>Sneha Rao</h4>
+      </div>
+
+      <div class="testimonial">
+        <img src="https://i.pravatar.cc/80?img=14" alt="Client 4">
+        <p>"Very professional and so easy to work with."</p>
+        <div class="stars">★★★★☆</div>
+        <h4>Karan Malhotra</h4>
+      </div>
+
+      <div class="testimonial">
+        <img src="home/novel_profile.jpg" alt="Client 5">
+        <p>"They made our engagement the most memorable day of our lives."</p>
+        <div class="stars">★★★★★</div>
+        <h4>Divya Sharma</h4>
+      </div>
+
+      <div class="testimonial">
+        <img src="home/career.jpg" alt="Client 6">
+        <p>"So beautifully planned! Every guest was impressed."</p>
+        <div class="stars">★★★★★</div>
+        <h4>Rahul Verma</h4>
+      </div>
+
+      <div class="testimonial">
+        <img src="home/plant_profile.jpg" alt="Client 7">
+        <p>"Great attention to detail and top-notch service."</p>
+        <div class="stars">★★★★☆</div>
+        <h4>Tanvi Joshi</h4>
+      </div>
+
+      <div class="testimonial">
+        <img src="home/music_profile.jpg" alt="Client 8">
+        <p>"They created a truly dreamy wedding experience for us."</p>
+        <div class="stars">★★★★★</div>
+        <h4>Vikram Reddy</h4>
+      </div>
+
+      <div class="testimonial">
+        <img src="home/novel.jpg" alt="Client 9">
+        <p>"Our guests are still talking about how lovely everything was!"</p>
+        <div class="stars">★★★★☆</div>
+        <h4>Pooja Nair</h4>
+      </div>
+
+      <div class="testimonial">
+        <img src="https://i.pravatar.cc/80?img=20" alt="Client 10">
+        <p>"I would highly recommend them to anyone looking for an elegant event."</p>
+        <div class="stars">★★★★★</div>
+        <h4>Ankit Shah</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+      <footer>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="./footer.png" alt="Planurise Logo" class="footer-logo" />
+      <h2>Planurise</h2>
+      <p>Your one-stop destination to customize and plan magical events of all kinds!</p>
+    </div>
+
+    <div class="footer-center">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="footer-icons">
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" alt="Instagram" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/facebook.svg" alt="Facebook" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/twitter.svg" alt="Twitter" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/youtube.svg" alt="YouTube" /></a>
+      </div>
+
+      <!-- New icons row -->
+      <div class="footer-icons">
+        <a href="#"><img src="./home.png" alt="Home" /></a>
+        <a href="#"><img src="./share.png" alt="Share" /></a>
+        <a href="#"><img src="./heart.png" alt="Favourite" /></a>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <h3>Find Us</h3>
+      <p>123 Celebration Street,<br />Event City, India</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.9869297039337!2d72.87765561490352!3d19.07609088709217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce7b0f3eb5a7%3A0x6e4c7f2bc9c1c6e2!2sBandra%20Kurla%20Complex!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+        width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <p class="copyright">© 2025 Planurise. All Rights Reserved.</p>
+</footer>
+
+  <script src="home.js"></script>
+  <script src="home1.js"></script>
+</body>
+</html>

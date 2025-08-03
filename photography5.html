@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Entertainment - Planurise</title>
+        <link rel="stylesheet" href="photography.css">
+        <link rel="stylesheet" href="sidebar.css">
+        <link rel="stylesheet" href="header.css">
+    </head>
+    <body>
+        <!-- header -->
+        <nav class="header">
+            <div class="nav-left">
+                <img class="logo_img" src="img/logo.png" alt="logo">
+                <div class="logo">Planurise</div>
+            </div>
+            <div class="nav-right desktop-nav">
+                <div class="nav-item">
+                    <a href="index.html" class="no-underline">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+                </div>
+                <div class="nav-item">
+                    <a href="packages.html" class="no-underline">Packages</a>
+                </div>
+                <div class="nav-item">
+                    <a href="Guest.html" class="no-underline">Guest Manager</a>
+                </div>
+                <div class="nav-item">
+                    <a href="my_events.html" class="no-underline">My events</a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html" class="no-underline">About us</a>
+                </div>
+                <div class="user">
+                    <a href="profile.html" class="no-underline">
+                        <img class="profile-img" src="img/profile.jpg" alt="Profile">
+                    </a>
+                </div>
+            </div>
+            <button class="menu-bar" onclick="openSidebar()">☰</button>
+        </nav>
+
+        <div class="sidebar" id="sidebar">
+            <div class="close-icon" onclick="closeSidebar()">X</div>
+            <div class="options">
+                <a href="index.html" class="no-underline">Home</a>
+                <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+                <a href="packages.html" class="no-underline">Packages</a>
+                <a href="Guest.html" class="no-underline">Guest Manager</a>
+                <a href="my_events.html" class="no-underline">My events</a>
+                <a href="about.html" class="no-underline">About us</a>
+                <a href="profile.html" class="no-underline">Profile</a>
+            </div>
+        </div> 
+
+        <!-- sidebar -->
+        <div class="body_content">
+            <div class="sidebar_bundle">
+                <nav class="desktop-sidebar-nav">
+                    <div class="sidebar-link"><a href="plan_ur_event5.html" class="sidebar-link-text">Details</a></div>
+                    <div class="sidebar-link"><a href="vizag.html" class="sidebar-link-text">Venue</a></div>
+                    <div class="sidebar-link"><a href="decoration5.html" class="sidebar-link-text">Decoration</a></div>
+                    <div class="sidebar-link"><a href="food5.html" class="sidebar-link-text">Food</a></div>
+                    <div class="sidebar-link"><a href="photography5.html" class="sidebar-link-text active">Photography</a></div>
+                    <div class="sidebar-link"><a href="entertainment5.html" class="sidebar-link-text">Entertainment</a></div>
+
+                    <!-- Image + Quote Section -->
+                    <div class="sidebar-image-quote">
+                        <img src="https://i.pinimg.com/1200x/03/ab/03/03ab03d3d4ddc645134259c0e31dbe11.jpg" alt="Wedding" />
+                        <p class="quote-text">“Make memories, not just plans.”</p>
+                    </div>
+                </nav>
+
+                <!-- Mobile Hamburger Icon -->
+
+                <button class="mobile-menu-btn" onclick="openSidebarMenu()">&#9776;</button>
+
+                <!-- Sidebar for Mobile -->
+                <div class="mobile-sidebar" id="mobileSidebar">
+                    <div class="mobile-close" onclick="closeSidebarMenu()">✖</div>
+                    <div class="mobile-options">
+                        <a href="plan_ur_event5.html" class="sidebar-link-text">Details</a>
+                        <a href="vizag.html" class="sidebar-link-text">Venue</a>
+                        <a href="decoration5.html" class="sidebar-link-text">Decoration</a>
+                        <a href="food5.html" class="sidebar-link-text">Food</a>
+                        <a href="photography5.html" class="sidebar-link-text active">Photography</a>
+                        <a href="entertainment5.html" class="sidebar-link-text">Entertainment</a>
+                    </div>
+                </div>
+            </div>
+        <!-- Main Content -->
+            <div class="content">
+                <div class="button_bundle">
+                    <button class="back-btn">
+                        <a href="food5.html" class="no-underline">Back</a>
+                    </button>
+                    <button class="next-btn">
+                        <a href=entertainment5.html class="no-underline">next</a>
+                    </button>
+                </div>
+                <h1 class="page-heading">PHOTOGRAPHY</h1>
+
+                <!-- CARDS -->
+                <div class="cards-container">
+                    <div class="card" data-cost="20000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/project/313994/1753036154_DSC01655.jpg?crop=182,347,1706,959" alt="Wedding Photography">
+                        <h3>Elite Wedding Shoots</h3>
+                        <div class="stars">★★★★★</div>
+                        <p class="price">₹20,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="15000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/project/304268/1738232177_N_A_3209.jpg?crop=125,454,1622,912" alt="Candid Photography">
+                        <h3>Candid Moments Studio</h3>
+                        <div class="stars">★★★☆☆</div>
+                        <p class="price">₹15,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="25000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/project/298317/1726562895_untitled_20.jpg" alt="Drone Photography">
+                        <h3>SkyView Drones</h3>
+                        <div class="stars">★★★★★</div>
+                        <p class="price">₹25,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="70000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/member/1275122/1684227499_image1657.jpg?crop=11,198,2025,1139" alt="Drone Photography">
+                        <h3>Confetti Films</h3>
+                        <div class="stars">★★★★★</div>
+                        <p class="price">₹70,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="35000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/member/2326445/1739605236_RAJ_3255.jpg?crop=12,26,2023,1138" alt="Drone Photography">
+                        <h3>Dreamy Knots</h3>
+                        <div class="stars">★★★★☆</div>
+                        <p class="price">₹35,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="25000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/member/41043/1750250696_XH2S3215.jpg?crop=13,232,2013,1132" alt="Drone Photography">
+                        <h3>Photomist</h3>
+                        <div class="stars">★★★★★</div>
+                        <p class="price">₹25,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="45000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/member/458965/1753280249_1.jpg?crop=172,72,1822,1025">
+                        <h3>The_WeddingBuzz</h3>
+                        <div class="stars">★★★★★</div>
+                        <p class="price">₹45,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="30000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/member/24640354/1741371239_DSC05406.JPG?crop=213,360,1785,1004" alt="Drone Photography">
+                        <h3>Ds Studio</h3>
+                        <div class="stars">★★★★★</div>
+                        <p class="price">₹30,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="150000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/member/572308/1750666589_Raoul___Sushmita__266_.JPG?crop=12,226,2023,1138" alt="Drone Photography">
+                        <h3>RK Photography</h3>
+                        <div class="stars">★★★★★</div>
+                        <p class="price">₹1,50,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="220000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/project/213864/1662714607_K_D_Haldi_448_.jpg?crop=8,222,2030,1141">
+                        <h3>Heart and Craft</h3>
+                        <div class="stars">★★★★★</div>
+                        <p class="price">₹2,20,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="60000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/member/652961/1743553988_ACS_4098.jpg?crop=12,226,2023,1138">
+                        <h3>Authentic Clicks</h3>
+                        <div class="stars">★★★★★</div>
+                        <p class="price">₹60,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="card" data-cost="150000" data-category="Photography">
+                        <img src="https://image.wedmegood.com/resized/450X/uploads/member/473336/1710212959_K_J08836.jpg?crop=5,842,2036,1145">
+                        <h3>Sun Shine Studio</h3>
+                        <div class="stars">★★★★★</div>
+                        <p class="price">₹1,50,000</p>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CIRCULAR BUDGET BUTTON -->
+        <button id="budget-btn">₹0</button>
+
+        <!-- POPUP MODAL -->
+        <div id="budget-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Total Budget</h2>
+                <ul id="budget-list"></ul>
+                <h3 id="budget-total">Total: ₹0</h3>
+            </div>
+        </div>
+    </body>
+    <script>
+        function openSidebarMenu() {
+            document.getElementById("mobileSidebar").style.left = "0px";
+        }
+        function closeSidebarMenu() {
+            document.getElementById("mobileSidebar").style.left = "-230px";
+        }
+    </script>
+    <script src="venue.js"></script>
+    <script src="home.js"></script>
+</html>

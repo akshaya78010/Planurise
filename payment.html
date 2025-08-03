@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+<link rel="stylesheet" href="payment.css">
+</head>
+<body>
+<div class="payment-container">
+  <h2>Complete Your Payment</h2>
+
+  <div class="summary">
+    <p><strong>Event:</strong> <span id="event-name"></span></p>
+    <p><strong>Customer:</strong> <span id="customer-name"></span></p>
+    <p><strong>Payment Type:</strong> <span id="payment-type"></span></p>
+    <p><strong>Amount:</strong> <span id="payment-amount"></span></p>
+  </div>
+
+  <div class="method">
+    <label>
+      <input type="radio" name="method" value="card" checked> Card
+    </label>
+    <label>
+      <input type="radio" name="method" value="upi"> UPI
+    </label>
+  </div>
+
+  <form id="card-form" class="payment-form">
+    <input type="text" placeholder="Card Number" maxlength="16" required>
+    <input type="text" placeholder="Cardholder Name" required>
+    <input type="text" placeholder="MM/YY" maxlength="5" required>
+    <input type="text" placeholder="CVV" maxlength="3" required>
+    <button type="submit">Pay Now</button>
+  </form>
+
+  <form id="upi-form" class="payment-form hidden">
+    <input type="text" placeholder="Enter UPI ID (example@upi)" required>
+    <button type="submit">Pay via UPI</button>
+  </form>
+</div>
+
+<!-- Success Modal -->
+<div id="success-modal" class="modal">
+  <div class="modal-content">
+    <h3>Payment Successful 🎉</h3>
+    <p>Your payment has been processed successfully.</p>
+    <button onclick="redirectToEvents()">Go to My Events</button>
+  </div>
+</div>
+
+<script src="payment.js"></script>
+</body>
+</html>

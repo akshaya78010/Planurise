@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e7f4da;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: calc(100% - 230px);
+    margin-left:230px;
+}
+.content h1 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.page-heading {
+    text-align: center;
+    font-size: 32px;
+    color: #5d4037;
+    margin-bottom: 20px;
+}
+
+/* CARDS GRID */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: gold;
+    margin-bottom: 10px;
+}
+.price {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+button,
+.book-btn {
+    background-color: #6d4c41; /* dark earthy brown */
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover,
+.book-btn:hover {
+    background-color: #5d4037; /* slightly darker on hover */
+}
+
+.next-btn,
+.back-btn {
+    background-color: #6d4c41; /* earthy brown */
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.next-btn:hover,
+.back-btn:hover {
+    background-color: #5d4037;
+}
+
+
+/* Floating Budget Button (Bigger & Stylish) */
+/* #budget-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #6d4c41, #8d6e63);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
+} */
+
+#budget-btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #5d4037, #7b5e57);
+}
+
+#budget-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #6d4c41, #8d6e63);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+
+/* Modal Popup (Stylish) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: #fffaf5;
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: scaleIn 0.3s ease;
+}
+
+
+
+.modal-content h2 {
+    color: #5d4037;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    color: #6d4c41;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.modal-content .close:hover {
+    color: #5d4037;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); }
+    to { transform: scale(1); }
+}
+
+/* RESPONSIVE SIDEBAR */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 180px;
+    }
+    .content {
+        margin-left: 100px;
+        width: calc(100% - 200px);
+    }
+}
+
+@media (max-width: 500px) {
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 100px;
+    }
+}
+.body_content{
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  width:100%;
+}
+.button_bundle{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:100%;
+}

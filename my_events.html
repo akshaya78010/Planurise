@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Card Carousel</title>
+<style>
+  :root {
+  --sage-green: #9CAF88;
+  --slate-olive: #6B7C52;
+  --warm-beige: #F4F1E8;
+  --muted-tan: #D4C4A8;
+  --rich-brown: #5D4E37;
+  --dark-sage: #7A8B6B;
+  --light-sage: #B8C9A4;
+}
+  body {
+    margin: 0;
+    background: #f0f0f0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    /* height: 100svh; */
+  }
+  
+  .myeventstxt {
+    font-weight: 300;
+    font-size: 90px;
+    font-family: 'Edwardian Script ITC', cursive;
+    padding-top: 0px;
+    /* margin-top: 30px; */
+    text-align: center;
+    padding-top: 20px;
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 60px;
+  }
+  button.book-btn,
+button {
+  background-color: var(--slate-olive);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button.book-btn:hover,
+button:hover {
+  background-color: var(--dark-sage);
+}
+
+.savedtxt {
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+.bookedtxt {
+  text-align: center;
+  font-size: 28px;
+  color: black;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+hr.separator {
+  width: 100%;
+  border: none;
+  border-top: 2px solid var(--rich-brown);
+  margin: 60px 0;
+}
+  .carousel {
+    position: relative;
+    width: 700px;
+    height: 300px;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    position: absolute;
+width: 90vw;
+max-width: 700px;
+    background: white;
+    border: 2px solid #ccc;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s ease, z-index 0.8s ease;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .left {
+    transform: translateX(-620px) scale(0.8);
+    z-index: 1;
+  }
+
+  .center {
+    transform: translateX(0) scale(1.2);
+    z-index: 3;
+  }
+
+  .right {
+    transform: translateX(620px) scale(0.8);
+    z-index: 2;
+  }
+
+  /* Event card inner layout */
+.event-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* 1 part image, 1.2 parts content */
+  width: 100%;
+  height: 100%;
+}
+
+
+.event-img {
+  width: 100%;
+  height: 100%;
+}
+
+.event-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  display: block;
+}
+
+
+.event-content {
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(to right, #ffffff, #f9f9f9);
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.gallary-selection {
+  margin: 60px auto;
+  padding: 20px;
+  max-width: 90%;
+  border-radius: 16px;
+  background: linear-gradient(to right, #f8f8f8, #f1f1f1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.scroll-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.scroll-gallery {
+  display: flex;
+  gap: 30px;
+  white-space: nowrap;
+  animation-play-state: running;
+}
+
+.scroll-gallery img {
+  height: 250px;
+  border-radius: 15px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.scroll-gallery img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation for left-to-right scroll */
+.scroll-left {
+  animation: scrollLeft 20s linear infinite;
+}
+.scroll-left:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Animation for right-to-left scroll */
+.scroll-right {
+  animation: scrollRight 20s linear infinite;
+}
+.scroll-right:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+  .event-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .event-date,
+  .event-venue {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+
+  .booked {
+    margin-top: 10px;
+  }
+
+  .book-btn {
+    padding: 8px 16px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .book-btn:hover {
+    background-color: #e73370;
+  }
+.popup-overlay {
+  display: none; /* Important */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+}
+
+/* POPUP CONTAINER */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* POPUP INNER BOX */
+.popup-content {
+  background-color: #F4F1E8; /* warm-beige */
+  margin: auto;
+  padding: 30px 40px;
+  border: 1px solid #ccc;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* CLOSE BUTTON */
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: #5D4E37; /* rich-brown */
+  cursor: pointer;
+}
+
+/* TITLE */
+.popup-content h2 {
+  font-size: 28px;
+  color: #6B7C52; /* slate-olive */
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 2px solid #D4C4A8; /* muted-tan */
+  padding-bottom: 10px;
+}
+
+/* INFO GROUPS */
+.popup-info-group {
+  margin-bottom: 20px;
+}
+
+.popup-info-label {
+  font-weight: bold;
+  color: #5D4E37;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.popup-info-value {
+  font-size: 18px;
+  color: #333;
+}
+
+/* LIST OF DETAILS */
+.popup-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.popup-content ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #444;
+}
+
+.popup-content ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 16px;
+}
+
+.menu-button {
+  position: fixed;
+  top: 90px;
+  left: 20px;
+  font-size: 22px;
+  background-color: var(--sage-green);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.menu-button:hover {
+  background-color: var(--dark-sage);
+  transform: scale(1.05);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--warm-beige);
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 30px 20px;
+  transition: left 0.4s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  font-family: 'Segoe UI', sans-serif;
+  border-right: 3px solid var(--sage-green);
+}
+
+.menu-visible {
+  left: 0;
+}
+.menu::-webkit-scrollbar {
+  width: 6px;
+}
+.menu::-webkit-scrollbar-thumb {
+  background-color: var(--muted-tan);
+  border-radius: 3px;
+}
+
+.menu-close-btn {
+  font-size: 28px;
+  color: var(--slate-olive);
+  align-self: flex-end;
+  cursor: pointer;
+  margin-bottom: 30px;
+  background: none;
+  border: none;
+  outline: none;
+  transition: color 0.3s ease;
+}
+@media screen and (max-width: 768px) {
+  .card.right {
+    display: none; /* <- This could hide it */
+  }
+}
+
+.menu-close-btn:hover {
+  color: var(--rich-brown);
+}
+
+.menu-item {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 12px 16px;
+  color: var(--rich-brown);
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: var(--warm-beige);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.menu-item:hover {
+  background-color: var(--light-sage);
+  transform: translateX(6px);
+  color: var(--slate-olive);
+}
+
+.submenu {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 12px;
+  margin-bottom: 10px;
+}
+
+.submenu.show {
+  display: flex;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.menu-item:hover {
+  animation: pop 0.3s ease;
+}
+.menu::-webkit-scrollbar {
+  width: 6px;
+}
+.menu::-webkit-scrollbar-thumb {
+  background-color: var(--muted-tan);
+  border-radius: 3px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+  float: right;
+  font-size: 22px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+.popup-footer {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.pay-btn {
+  background-color: #6B7C52; /* Olive green */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pay-btn:hover {
+  background-color: #5a6944; /* Darker olive on hover */
+}
+
+.menu-footer {
+  margin-top: auto;
+  text-align: center;
+  font-size: 14px;
+  color: var(--slate-olive);
+  padding-top: 20px;
+  opacity: 0.8;
+}
+.menu-footer hr {
+  border: none;
+  border-top: 1px solid var(--muted-tan);
+  margin-bottom: 10px;
+}
+.scroll-gallery {
+  max-width: 100%;
+  margin-top: 50px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(164,119,85) ;
+    color: white;
+    position: sticky;
+    top: 0;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo_img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight:900;
+    font-family: "Playwrite AU NSW", cursive;
+}
+
+
+.nav-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.nav-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.no-underline {
+    text-decoration: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.no-underline:hover {
+    background: rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    color:rgb(250, 212, 105);
+}
+
+
+.no-underline.active{
+    color:#FAE29C;
+}
+
+.profile-img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.menu-bar {
+    display: none;
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-icon {
+    font-size: 24px;
+    color: white;
+    text-align: right;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.options a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    transition: background 0.3s, color 0.3s;
+}
+
+.options a:hover {
+    background: rgba(255,255,255,0.2);
+    color:rgb(250, 212, 105);
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    .menu-bar {
+        display: block;
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -230px;
+    width: 230px;
+    /* background: linear-gradient(to bottom, #ff3ad4, #ff0062); */
+    background-color: rgba(164,119,85);
+    box-shadow: -2px 0 15px rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+    transition: right 0.4s ease;
+    border-radius: 0 0 0 12px;
+    padding-top: 10px;
+    z-index: 20;
+}
+
+.close-icon {
+    font-size: 24px;
+    color: white;
+    text-align: right;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.options a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    transition: background 0.3s, color 0.3s;
+}
+
+.options a:hover {
+    background: rgba(255,255,255,0.1);
+    color:rgb(250, 212, 105);
+}
+@media (max-width: 767px) {
+  .card {
+    width: 90vw;
+    height: 250px;
+    position: absolute;
+    opacity: 0;
+    animation: fadeCard 24s infinite ease-in-out;
+    transition: opacity 1.5s ease-in-out;
+    display: block !important;
+  }
+
+  .card:nth-child(1) {
+    animation-delay: 0s;
+    z-index: 3;
+  }
+
+  .card:nth-child(2) {
+    animation-delay: 8s;
+    z-index: 2;
+  }
+
+  .card:nth-child(3) {
+    animation-delay: 16s;
+    z-index: 1;
+  }
+
+  @keyframes fadeCard {
+    0% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    8% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    30% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    38% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+}
+@media (max-width: 767px) {
+  body, html {
+    overflow-x: hidden;
+  }
+
+  .container, .carousel-wrapper, .card-wrapper {
+    overflow-x: hidden;
+  }
+}
+/* Global */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Specific containers */
+.container, .carousel-wrapper, .card-wrapper {
+  overflow-x: hidden;
+}
+
+/* Optional strict scroll lock on specific ranges */
+@media (min-width: 768px) and (max-width: 1024px), 
+       (min-width: 1025px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .container, .carousel-wrapper, .card-wrapper {
+    overflow-x: hidden;
+  }
+}
+
+
+</style>
+<script src="home.js"></script>
+</head>
+<body>
+    <nav class="header">
+    <div class="nav-left">
+        <img class="logo_img" src="img/logo.png" alt="logo">
+        <div class="logo">Planurise</div>
+    </div>
+    <div class="nav-right desktop-nav">
+        <div class="nav-item">
+            <a href="index.html" class="no-underline">Home</a>
+        </div>
+        <div class="nav-item">
+            <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+        </div>
+        <div class="nav-item">
+            <a href="packages.html" class="no-underline">Packages</a>
+        </div>
+        <div class="nav-item">
+            <a href="Guest.html" class="no-underline">Guest Manager</a>
+        </div>
+        <div class="nav-item">
+            <a href="my_events.html" class="no-underline active">My events</a>
+        </div>
+        <div class="nav-item">
+            <a href="about.html" class="no-underline">About us</a>
+        </div>
+        <div class="user">
+            <a href="profile.html" class="no-underline">
+                <img class="profile-img" src="img/profile.jpg" alt="Profile">
+            </a>
+        </div>
+    </div>
+    <button class="menu-bar" onclick="openSidebar()">☰</button>
+  </nav>
+
+  <div class="sidebar" id="sidebar">
+      <div class="close-icon" onclick="closeSidebar()">X</div>
+      <div class="options">
+          <a href="index.html" class="no-underline">Home</a>
+          <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+          <a href="packages.html" class="no-underline">Packages</a>
+          <a href="Guest.html" class="no-underline">Guest Manager</a>
+          <a href="my_events.html" class="no-underline active">My events</a>
+          <a href="about.html" class="no-underline">About us</a>
+          <a href="profile.html" class="no-underline">Profile</a>
+      </div>
+  </div>
+  </div>
+    <button class="menu-button" onclick="showMenu()">☰ Menu</button>
+    <div class="menu" id="menu">
+      <span class="menu-close-btn" onclick="hideMenu()">&times;</span>
+      <div class="menu-item" onclick="toggleSubmenu('submenu')">Booked</div>
+      <div class="submenu" id="submenu">
+        <div class="menu-item">Wedding</div>
+        <div class="menu-item">Christmas-Event</div>
+      </div>
+      <div class="menu-item" onclick="toggleSubmenu('saved-submenu')">Saved</div>
+      <div class="submenu" id="saved-submenu">
+        <div class="menu-item">Baby-Shower</div>
+        <div class="menu-item">Birthday</div>
+        <div class="menu-item">College-Event</div>
+      </div>
+      <div class="menu-item" onclick="toggleSubmenu('servicemenu')">Services</div>
+      <div class="submenu" id="servicemenu">
+        <div class="menu-item">Wedding</div>
+        <div class="menu-item">Birthday</div>
+        <div class="menu-item">House-Warming</div>
+        <div class="menu-item">Baby-Shower</div>
+        <div class="menu-item">College-Event</div>
+      </div>
+      <div class="menu-item" onclick="toggleSubmenu('event-types')">Event Types</div>
+        <div class="submenu" id="event-types">
+        <div class="menu-item">Corporate</div>
+        <div class="menu-item">Family</div>
+        <div class="menu-item">Social</div>
+        <div class="menu-item">Religious</div>
+        </div>
+        <div class="menu-item" onclick="toggleSubmenu('profile')">My Account</div>
+          <div class="submenu" id="profile">
+          <div class="menu-item">Profile Settings</div>
+          <div class="menu-item">Change Password</div>
+          <div class="menu-item">My Account</div>
+          </div>
+          <!-- Menu items -->
+          <div class="menu-footer">
+            <hr />
+            <div class="menu-item logout" onclick="logout()">Logout</div>
+            <p>© 2025 MyEvents</p>
+            <p style="font-size: 13px;">Crafted with ❤</p>
+          </div>
+
+    </div>
+    <div class="myeventstxt">My Events</div>
+<div class="container" style="background-color: rgba(161, 156, 113, 1);">
+    <!-- <div class="box1"> -->
+    <h2 class="bookedtxt">Events you have already booked this season:</h2>
+    <div class="carousel">
+    <div class="card left" id="card1">
+        <div class="event-card">
+            <div class="event-img">
+                <img src="wedpic.jpg" alt="Wedding Hall" />
+            </div>
+            <div class="event-content" style="padding: 10px; text-align: center;">
+            <div class="event-title" style="font-size: 20px; font-weight: bold; margin-bottom: 8px;">Wedding</div>
+            <div class="event-date" style="margin-bottom: 5px;">Date & Time: 12th December 2025, 4:00 PM</div>
+            <div class="event-venue" style="margin-bottom: 10px;">Venue: Royal Palace, Jaipur</div>
+            <button onclick="openPopup('Wedding')">Booked</button>
+            </div>
+        </div>
+    </div>
+    
+
+      <div class="card center" id="card2">
+        <div class="event-card">
+            <div class="event-img">
+            <img src="1000_F_400268791_rQttgaunXilPVoC9KaPLosFmDGeeaouI.jpg" alt="Christmas Celebration">
+            </div>
+            <div class="event-content" style="padding: 10px; text-align: center;">
+            <div class="event-title" style="font-size: 20px; font-weight: bold; margin-bottom: 8px;">Christmas</div>
+            <div class="event-date" style="margin-bottom: 5px;" >Date & Time: 25th December 2025, 6:30 PM</div>
+            <div class="event-venue" style="margin-bottom: 10px;" >Venue: City Park, New Delhi</div>
+            <button onclick="openPopup('Christmas')">Booked</button>
+            </div>
+        </div>
+        </div>
+
+      <div class="card right" id="card3">
+            <div class="event-card">
+                <div class="event-img">
+                <img src="Birthday-party-I3.jpg" alt="Birthday Celebration">
+                </div>
+                <div class="event-content" style="padding: 10px; text-align: center;">
+                <div class="event-title"style="font-size: 20px; font-weight: bold; margin-bottom: 8px;">Birthday</div>
+                <div class="event-date" style="margin-bottom: 5px;" >Date & Time: 5th August 2025, 7:00 PM</div>
+                <div class="event-venue"  style="margin-bottom: 10px;">Venue: Blue Moon Banquet, Bengaluru</div>
+                <button onclick="openPopup('Birthday')">Booked</button>
+                </div>
+            </div>
+        </div>
+     </div>
+     <br><br><br>
+<div style="width: 100%; border-top: 2px solid #444; margin: 40px 0;"></div>
+
+ <h2 class="savedtxt">Events that you have saved this season:</h2>
+     <div class="carousel reverse-direction">
+      
+    <div class="card left" id="card1">
+        <div class="event-card">
+            <div class="event-img">
+                <img src="https://i.pinimg.com/1200x/b5/5a/4e/b55a4e56c22cc3686e21bb53113c1638.jpg" alt="Wedding Hall" />
+            </div>
+            <div class="event-content" style="padding: 10px; text-align: center;">
+            <div class="event-title" style="font-size: 20px; font-weight: bold; margin-bottom: 8px;">College Event</div>
+            <div class="event-date" style="margin-bottom: 5px;">Date & Time: 12th December 2025, 4:00 PM</div>
+            <div class="event-venue" style="margin-bottom: 10px;">Venue: Royal Palace, Jaipur</div>
+            <button onclick="openPopup('Wedding')">SAVED</button>
+            </div>
+        </div>
+    </div>
+
+      <div class="card center" id="card2">
+        <div class="event-card">
+            <div class="event-img">
+            <img src="https://i.pinimg.com/736x/0c/6e/69/0c6e69910b5b6b3b1fc3e06dd2071904.jpg" alt="Christmas Celebration">
+            </div>
+            <div class="event-content" style="padding: 10px; text-align: center;">
+            <div class="event-title" style="font-size: 20px; font-weight: bold; margin-bottom: 8px;">Birthday</div>
+            <div class="event-date" style="margin-bottom: 5px;" >Date & Time: 25th December 2025, 6:30 PM</div>
+            <div class="event-venue" style="margin-bottom: 10px;" >Venue: City Park, New Delhi</div>
+            <button class="book-btn" onclick="openPopup('Christmas')">SAVED</button>
+
+            </div>
+        </div>
+        </div>
+
+      <div class="card right" id="card3">
+            <div class="event-card">
+                <div class="event-img">
+                <img src="https://i.pinimg.com/736x/12/d8/3d/12d83dd7f12e4ee7fe8e184c4b75045b.jpg" alt="Birthday Celebration">
+                </div>
+                <div class="event-content" style="padding: 10px; text-align: center;">
+                <div class="event-title"style="font-size: 20px; font-weight: bold; margin-bottom: 8px;">Baby-Shower</div>
+                <div class="event-date" style="margin-bottom: 5px;" >Date & Time: 19th december 2025, 8:00 PM</div>
+                <div class="event-venue"  style="margin-bottom: 10px;">Venue: Blue Moon Banquet, chennai</div>
+                <button class="book-btn" onclick="openPopup('Birthday')">SAVED</button>
+
+                </div>
+            </div>
+        </div>
+
+     </div><br><br>
+     <!-- Dynamic Event Details Popup -->
+<div id="detailsModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2 id="eventTitle">Event Title</h2>
+    <p><strong>Date & Time:</strong> <span id="eventDate"></span></p>
+    <p><strong>Venue:</strong> <span id="eventVenue"></span></p>
+    <ul id="eventDetailsList"></ul>
+          <div class="popup-footer">
+            <button class="pay-btn">Pay Now</button>
+          </div>
+  </div>
+</div>
+
+     <div class="gallerytxt">
+      <h1 class="gtxt">Many More Options What You Might Find Intresting.</h1>
+     </div>
+     <!-- Gallery Section -->
+  <section class="gallery-section">
+
+    <div class="scroll-wrapper">
+      <!-- Left to Right -->
+      <div class="scroll-gallery scroll-left">
+        <img src="https://i.pinimg.com/736x/3c/33/70/3c3370d6759e54e62170d6aacd6ded68.jpg" />
+        <img src="https://i.pinimg.com/736x/0e/d6/f2/0ed6f2ef0f204dba3be030a1c9a62100.jpg" />
+        <img src="https://i.pinimg.com/736x/18/82/c6/1882c6b361fb8e3a2b2f7736e121e65a.jpg" />
+        <img src="https://i.pinimg.com/736x/0c/6e/69/0c6e69910b5b6b3b1fc3e06dd2071904.jpg" />
+        <img src="https://i.pinimg.com/1200x/69/d6/48/69d648d0edae8632a4d2da4a9e4a4656.jpg" />
+        <img src="https://i.pinimg.com/736x/06/0f/2b/060f2b3deae8b73d17fe763e79ae10f5.jpg" />
+        <img src="https://i.pinimg.com/736x/f7/49/1f/f7491fc11a45dca0b8dc28786783148a.jpg" />
+        <!-- Duplicate for smooth loop -->
+        <img src="https://i.pinimg.com/736x/12/d8/3d/12d83dd7f12e4ee7fe8e184c4b75045b.jpg" />
+        <img src="https://i.pinimg.com/1200x/df/23/e1/df23e13ba48c43a7ef39165d30f4e003.jpg" />
+        <img src="https://i.pinimg.com/1200x/01/77/ec/0177ecfca171ceebd47ad9b5a1d34bbd.jpg" />
+        <img src="https://i.pinimg.com/736x/75/cf/41/75cf41e918b5db62157a02b6e9924d15.jpg" />
+        <img src="https://i.pinimg.com/1200x/80/19/4f/80194f9ee816c26cafd2e7449491b578.jpg" />
+        <img src="https://i.pinimg.com/736x/b3/2b/c1/b32bc11b5cb5decb04c6db732a341b4b.jpg" />
+        <img src="https://i.pinimg.com/736x/63/e3/48/63e34884f33b48242e79640c86b173f4.jpg" />
+      </div>
+
+      <!-- Right to Left -->
+      <div class="scroll-gallery scroll-right">
+        <img src="https://i.pinimg.com/736x/12/d8/3d/12d83dd7f12e4ee7fe8e184c4b75045b.jpg" />
+        <img src="https://i.pinimg.com/1200x/df/23/e1/df23e13ba48c43a7ef39165d30f4e003.jpg" />
+        <img src="https://i.pinimg.com/1200x/01/77/ec/0177ecfca171ceebd47ad9b5a1d34bbd.jpg" />
+        <img src="https://i.pinimg.com/736x/75/cf/41/75cf41e918b5db62157a02b6e9924d15.jpg" />
+        <img src="https://i.pinimg.com/1200x/80/19/4f/80194f9ee816c26cafd2e7449491b578.jpg" />
+        <img src="https://i.pinimg.com/736x/b3/2b/c1/b32bc11b5cb5decb04c6db732a341b4b.jpg" />
+        <img src="https://i.pinimg.com/736x/63/e3/48/63e34884f33b48242e79640c86b173f4.jpg" />        <!-- Duplicate for smooth loop -->
+       <img src="https://i.pinimg.com/736x/3c/33/70/3c3370d6759e54e62170d6aacd6ded68.jpg" />
+        <img src="https://i.pinimg.com/736x/0e/d6/f2/0ed6f2ef0f204dba3be030a1c9a62100.jpg" />
+        <img src="https://i.pinimg.com/736x/18/82/c6/1882c6b361fb8e3a2b2f7736e121e65a.jpg" />
+        <img src="https://i.pinimg.com/736x/0c/6e/69/0c6e69910b5b6b3b1fc3e06dd2071904.jpg" />
+        <img src="https://i.pinimg.com/1200x/69/d6/48/69d648d0edae8632a4d2da4a9e4a4656.jpg" />
+        <img src="https://i.pinimg.com/736x/06/0f/2b/060f2b3deae8b73d17fe763e79ae10f5.jpg" />
+        <img src="https://i.pinimg.com/736x/f7/49/1f/f7491fc11a45dca0b8dc28786783148a.jpg" />
+      </div>
+    </div>
+
+    <p class="gallery-quote">From Classic to Contemporary – We Bring Your Vision to Life ✨</p>
+  </section>
+   </div>
+   
+  <!-- </div> -->
+        <!-- POPUP OVERLAY -->
+   <!-- Popup Overlay -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-content" id="popupContent">
+<div class="popup-info-group">
+  <span class="popup-info-label">Date:</span>
+  <span class="popup-info-value" id="popupDate"></span>
+</div>
+
+<div class="popup-info-group">
+  <span class="popup-info-label">Venue:</span>
+  <span class="popup-info-value" id="popupVenue"></span>
+</div>
+
+<h3 style="margin-top: 20px; margin-bottom: 10px; color: #333;">Details</h3>
+<ul id="eventDetailsList"></ul>
+
+  </div>
+</div>
+
+
+<script>
+  const modal = document.getElementById("detailsModal");
+  const eventTitle = document.getElementById("eventTitle");
+  const eventDate = document.getElementById("eventDate");
+  const eventVenue = document.getElementById("eventVenue");
+  const eventDetailsList = document.getElementById("eventDetailsList");
+  const closeBtn = document.querySelector(".close-btn");
+
+  const eventData = {
+    "Wedding": {
+      date: "12th December 2025, 4:00 PM",
+      venue: "Royal Palace, Jaipur",
+      details: [
+        "Food: Royal Rajasthani Thali & Continental",
+        "Decor: Traditional floral arches with lantern lighting",
+        "Photography: Candid & cinematic wedding film",
+        "Venue: Lavish garden-side setup with palace backdrop",
+        "Entertainment: Live Rajasthani folk music & dance"
+      ]
+    },
+    "Christmas": {
+      date: "25th December 2025, 6:30 PM",
+      venue: "City Park, New Delhi",
+      details: [
+        "Food: Christmas-themed desserts & hot cocoa bar",
+        "Decor: Snowflakes, red-green lighting & tree decor",
+        "Photography: Santa photo booth + Polaroid station",
+        "Venue: Outdoor garden with fairy lights",
+        "Entertainment: Carol singers, live band & games"
+      ]
+    },
+    "Birthday": {
+      date: "5th August 2025, 7:00 PM",
+      venue: "Blue Moon Banquet, Bengaluru",
+      details: [
+        "Food: Cake buffet, snacks, and mocktail bar",
+        "Decor: Balloon arches, LED backdrop & name board",
+        "Photography: Instant photo wall & video coverage",
+        "Venue: Indoor banquet with colorful lighting",
+        "Entertainment: Magician, DJ, and dance games"
+      ]
+    },
+    "Engagement": {
+      date: "20th October 2025, 5:00 PM",
+      venue: "The Grand Orchid, Pune",
+      details: [
+        "Food: Veg & Non-Veg Continental buffet",
+        "Decor: Elegant pastels & chandelier lighting",
+        "Photography: Couple shoot + drone coverage",
+        "Venue: Rooftop with city view and floral aisle",
+        "Entertainment: Sitar & flute fusion live show"
+      ]
+    },
+    "New Year": {
+      date: "31st December 2025, 9:00 PM",
+      venue: "The Skyline Club, Mumbai",
+      details: [
+        "Food: Multi-cuisine with live counters & drinks",
+        "Decor: LED walls, glitter and countdown stage",
+        "Photography: Fireworks capture & photo booth",
+        "Venue: Rooftop with panoramic sea view",
+        "Entertainment: Celebrity DJ, fireworks & dancers"
+      ]
+    },
+    "Baby Shower": {
+      date: "15th September 2025, 3:00 PM",
+      venue: "Cozy Nest Lawn, Hyderabad",
+      details: [
+        "Food: Soft snacks, desserts, and mocktails",
+        "Decor: Pastel theme, ribbons, and teddy setup",
+        "Photography: Maternity shoot & cute props",
+        "Venue: Lawn with tented seating & balloon gate",
+        "Entertainment: Games, music, and prize giveaways"
+      ]
+    }
+  };
+  document.querySelector('.pay-btn').addEventListener('click', function () {
+  alert("Redirecting to payment gateway...");
+  // window.location.href = 'payment.html'; // or your actual URL
+});
+
+  function openPopup(eventName) {
+    const data = eventData[eventName];
+    if (!data) {
+      console.error("No data found for event:", eventName);
+      return;
+    }
+
+    eventTitle.textContent = eventName;
+    eventDate.textContent = data.date;
+    eventVenue.textContent = data.venue;
+
+    eventDetailsList.innerHTML = "";
+    data.details.forEach(detail => {
+      const li = document.createElement("li");
+      li.textContent = detail;
+      eventDetailsList.appendChild(li);
+    });
+
+    modal.style.display = "block";
+  }
+
+  // Close Modal on button or outside click
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => {
+    if (e.target == modal) modal.style.display = "none";
+  };
+
+  // Auto 3D Carousel Logic for all .carousel sections
+  function setupCarousels() {
+    document.querySelectorAll(".carousel").forEach(carousel => {
+      const cards = Array.from(carousel.querySelectorAll(".card"));
+      let currentIndex = 0;
+
+      setInterval(() => {
+        const total = cards.length;
+        cards.forEach(card => card.classList.remove("left", "center", "right"));
+
+        const leftIndex = (currentIndex + total - 1) % total;
+        const centerIndex = currentIndex;
+        const rightIndex = (currentIndex + 1) % total;
+
+        cards[leftIndex].classList.add("left");
+        cards[centerIndex].classList.add("center");
+        cards[rightIndex].classList.add("right");
+
+        currentIndex = (currentIndex + 1) % total;
+      }, 3000);
+    });
+  }
+
+  // Initialize Everything
+  window.onload = setupCarousels;
+
+  // Menu Controls
+  function showMenu() {
+    document.getElementById("menu").classList.add("menu-visible");
+  }
+
+  function hideMenu() {
+    document.getElementById("menu").classList.remove("menu-visible");
+  }
+
+  function toggleSubmenu(id) {
+    const submenu = document.getElementById(id);
+    submenu.classList.toggle("show");
+  }
+
+  function setupCarousels() {
+    
+    document.querySelectorAll(".carousel").forEach(carousel => {
+      const cards = Array.from(carousel.querySelectorAll(".card"));
+      let currentIndex = 0;
+
+      setInterval(() => {
+        const total = cards.length;
+
+        // Clear all position classes
+        cards.forEach(card => card.classList.remove("left", "center", "right"));
+
+        // Compute indices
+        const leftIndex = (currentIndex + total - 1) % total;
+        const centerIndex = currentIndex;
+        const rightIndex = (currentIndex + 1) % total;
+
+        // Assign positions
+        cards[leftIndex].classList.add("left");
+        cards[centerIndex].classList.add("center");
+        cards[rightIndex].classList.add("right");
+
+        // Move forward
+        currentIndex = (currentIndex + 1) % total;
+      }, 3000);
+    });
+  }
+
+  // Initialize carousel once window loads
+  window.onload = setupCarousels;
+
+
+</script>
+
+</body>
+</html>

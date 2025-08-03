@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planurise</title>
+  <link rel="stylesheet" href="plan_ur_event.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <!-- Header -->
+  <nav class="header">
+        <div class="nav-left">
+            <img class="logo_img" src="img/logo.png" alt="logo">
+            <div class="logo">Planurise</div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="nav-right desktop-nav">
+            <div class="nav-item">
+                <a href="home_page.html" class="no-underline">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+            </div>
+            <div class="nav-item">
+                <a href="packages.html" class="no-underline">Packages</a>
+            </div>
+            <div class="nav-item">
+                <a href="Guest.html" class="no-underline">Guest Manager</a>
+            </div>
+            <div class="nav-item">
+                <a href="My_events.html" class="no-underline">My events</a>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="no-underline">About us</a>
+            </div>
+            <div class="user">
+                <a href="profile.html" class="no-underline">
+                    <img class="profile-img" src="img/profile.jpg" alt="Profile">
+                </a>
+            </div>
+        </div>
+
+        <button class="menu-bar" onclick="openSidebar()">☰</button>
+    </nav>
+
+    <!-- Sidebar for Mobile/Tablet -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-icon" onclick="closeSidebar()">X</div>
+        <div class="options">
+            <a href="home_page.html" class="no-underline">Home</a>
+            <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+            <a href="packages.html" class="no-underline">Packages</a>
+            <a href="Guest.html" class="no-underline">Guest Manager</a>
+            <a href="my_events.html" class="no-underline">My events</a>
+            <a href="about.html" class="no-underline">About us</a>
+            <a href="profile.html" class="no-underline">Profile</a>
+        </div>
+    </div>
+
+
+  <!-- Main Content -->
+  <main>
+      <div class="content">
+        <h1>Choose Your Event</h1>
+        <div class="cards">
+
+          <!-- Card 1 -->
+          <a href="wedding.html" class="card-link">
+          <div class="c1 dual-hover wedding">
+            <div class="image-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1qXCV1EfYT8e7EjKU6vHuqGcMd8HTao5upg&s" class="default-img" alt="Wedding">
+              <img src="https://images.unsplash.com/photo-1529634898640-6f3f0ef2d6b1" class="img-left" alt="Wedding Left">
+              <img src="https://images.unsplash.com/photo-1529634898640-6f3f0ef2d6b1" class="img-right" alt="Wedding Right">
+            </div>
+            <p>Wedding</p>
+          </div>
+          </a>
+
+          <!-- Card 2 -->
+          <a href="wedding.html" class="card-link">
+          <div class="c1 dual-hover birthday">
+            <div class="image-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9mRIFLhcL7d8Cs2tnZIG_wRyaQ6XXPMNkPw&s" class="default-img" alt="Birthday">
+              <img src="./images/cake.png" class="img-left" alt="Birthday Left">
+              <img src="https://images.unsplash.com/photo-1604014237800-1ba733b72e79" class="img-right" alt="Birthday Right">
+            </div>
+            <p>Birthday</p>
+          </div>
+          </a>
+
+          <!-- Card 3 -->
+          <a href="wedding.html" class="card-link">
+          <div class="c1 dual-hover music">
+            <div class="image-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOyKBap0OuI6_29pK0rmp2JtMwB9_hWcffJg&s" class="default-img" alt="Music Concert">
+              <img src="https://images.unsplash.com/photo-1518976024611-28bf64b4e04c" class="img-left" alt="Music Concert Left">
+              <img src="https://images.unsplash.com/photo-1518976024611-28bf64b4e04c" class="img-right" alt="Music Concert Right">
+            </div>
+            <p>Music Concert</p>
+          </div>
+          </a>
+
+          <!-- Card 4 -->
+          <a href="wedding.html" class="card-link">
+          <div class="c1 dual-hover fest">
+            <div class="image-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRE_oRdTRF7yl4cEHP6-M2QC_zzFeBRtZWJA&s" class="default-img" alt="College Fest">
+              <img src="https://images.unsplash.com/photo-1518972559570-7cc1309f3229" class="img-left" alt="College Fest Left">
+              <img src="https://images.unsplash.com/photo-1518972559570-7cc1309f3229" class="img-right" alt="College Fest Right">
+            </div>
+            <p>College Fest</p>
+          </div>
+          </a>
+
+          <!-- Card 5 -->
+          <a href="wedding.html" class="card-link">
+          <div class="c1 dual-hover corporate">
+            <div class="image-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgsQSaMVV74BlJxJxCSnrk0pzdVrPBWpxkWw&s" class="default-img" alt="Corporate Event">
+              <img src="https://images.unsplash.com/photo-1556740720-776b84291f68" class="img-left" alt="Corporate Event Left">
+              <img src="https://images.unsplash.com/photo-1556740720-776b84291f68" class="img-right" alt="Corporate Event Right">
+            </div>
+            <p>Corporate Event</p>
+          </div>
+          </a>
+
+          <!-- Card 6 -->
+          <a href="wedding.html" class="card-link">
+          <div class="c1 dual-hover baby">
+            <div class="image-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ6WS_h2i_C__-yEe3j0LN0sVO9VZFwxd7Cg&s" class="default-img" alt="Baby Shower">
+              <img src="https://images.unsplash.com/photo-1562887000-f4d22e417b76" class="img-left" alt="Baby Shower Left">
+              <img src="https://images.unsplash.com/photo-1562887000-f4d22e417b76" class="img-right" alt="Baby Shower Right">
+            </div>
+            <p>Baby Shower</p>
+          </div>
+          </a>
+        </div>
+    </div>
+  </main>
+  <script src="home.js"></script>
+</body>
+</html>

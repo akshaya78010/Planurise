@@ -1,0 +1,168 @@
+body{
+  background-color:rgba(91, 112, 91, 0.5) ;
+    overflow-x: hidden;
+}
+
+/* Main Section */
+section {
+  margin-left: 250px;
+  padding: 100px 20px 20px 20px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  margin-bottom: 20px;
+
+}
+
+.section-heading h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #3f3821;
+  text-align: center;
+  flex: 1;
+}
+
+.next-button {
+  padding: 8px 16px;
+   background-color: #6d4c41;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.wedding-form {
+  padding: 30px 40px;
+  background-color: #fff5f5;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  border:2px solid pink;
+}
+
+.wedding-form label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+  color: #8b0000;
+}
+
+.wedding-form input,
+.wedding-form select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1.5px solid #ffc0cb;
+  border-radius: 8px;
+  background-color: #fff0f5;
+  box-sizing: border-box;
+}
+
+.wedding-form input:focus,
+.wedding-form select:focus {
+  outline: none;
+  border-color: #ff69b4;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+.submit-button {
+display:flex;
+justify-content: center;
+align-items: center;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: rgb(134, 98, 69); /* Deep red */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(196, 62, 80, 0.2);
+}
+
+.submit-button:hover {
+  background-color: #8b1a1a;
+  transform: scale(1.03);
+}
+/* Make section padding and margins responsive */
+@media (max-width: 1024px) {
+  section {
+    margin-left: 200px;
+    padding: 80px 16px 16px 16px;
+  }
+
+  .section-heading h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    margin-left: 0;
+    padding: 70px 15px 15px 15px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-heading h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .next-button {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .wedding-form {
+    padding: 25px 20px;
+  }
+
+  .wedding-form input,
+  .wedding-form select {
+    font-size: 15px;
+    padding: 9px;
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-heading h1 {
+    font-size: 22px;
+  }
+
+  .next-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .wedding-form label {
+    font-size: 14px;
+  }
+
+  .wedding-form input,
+  .wedding-form select {
+    font-size:14px;
+  }
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Bill</title>
+<link rel="stylesheet" href="photography.css">
+<script defer src="final_bill.js"></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f8f8f8;
+        margin: 0;
+        padding: 20px;
+    }
+    .bill-container {
+        max-width: 700px;
+        margin: auto;
+        background: #fff;
+        border: 2px solid #6a0c2d;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .bill-header {
+        text-align: center;
+        border-bottom: 2px solid #6a0c2d;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+    .bill-header h1 {
+        margin: 0;
+        color: #6a0c2d;
+    }
+    .bill-details {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+    }
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+    th {
+        background: #6a0c2d;
+        color: #fff;
+        padding: 8px;
+    }
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+    .totals {
+        text-align: right;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .totals div {
+        margin: 5px 0;
+    }
+    .btn-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    button {
+        background: #6a0c2d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background 0.3s;
+    }
+    button:hover {
+        background: #8b123a;
+    }
+    #print-btn {
+        display: block;
+        margin: 0 auto 15px auto;
+        background: #444;
+    }
+    #print-btn:hover {
+        background: #222;
+    }
+
+    /* Modal Styling */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-content {
+        background: #fff;
+        padding: 20px;
+        width: 300px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .modal-content h2 {
+        margin-bottom: 20px;
+        color: #6a0c2d;
+    }
+    .modal-content button {
+        margin: 10px;
+        width: 120px;
+    }
+</style>
+</head>
+<body>
+    <div class="bill-container">
+        <div class="bill-header">
+            <h1>Event Invoice</h1>
+            <p>Date: <span id="bill-date"></span></p>
+        </div>
+
+        <div class="bill-details">
+            <!-- Static Example -->
+            <!--
+            <div>
+                <strong>Customer Name:</strong> John Doe<br>
+                <strong>Event:</strong> Wedding Ceremony
+            </div>
+            <div>
+                <strong>Invoice #:</strong> 12345<br>
+                <strong>Contact:</strong> +91 9876543210
+            </div>
+            -->
+
+            <!-- Dynamic -->
+            <div id="customer-left"></div>
+            <div id="customer-right"></div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Category</th>
+                    <th>Cost (₹)</th>
+                </tr>
+            </thead>
+            <tbody id="bill-items">
+                <!-- Dynamically filled -->
+            </tbody>
+        </table>
+
+        <div class="totals">
+            <div id="subtotal">Subtotal: ₹0</div>
+            <div id="gst">GST (18%): ₹0</div>
+            <div id="final-total"><strong>Total: ₹0</strong></div>
+        </div>
+
+        <!-- Print Button -->
+        <button id="print-btn" onclick="window.print()">Print Bill</button>
+
+        <div class="btn-container">
+            <button onclick="saveBill()">Save</button>
+            <button onclick="openPaymentModal()">Pay</button>
+        </div>
+    </div>
+
+    <!-- Modal for Payment Choice -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <h2>Choose Payment Type</h2>
+            <button onclick="proceedPayment('advance')">Advance</button>
+            <button onclick="proceedPayment('full')">Full Payment</button>
+        </div>
+    </div>
+</body>
+</html>

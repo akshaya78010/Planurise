@@ -1,0 +1,235 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body with pastel background gradient */
+body {
+  background: linear-gradient(135deg, #fef6e4, #e6f4ea, #e4f0f8);
+  color: #333;
+}
+
+/* Theme color */
+:root {
+  --theme: rgb(164,119,85);
+}
+
+
+/* Section Title */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--theme);
+}
+
+/* --- How It Works Section --- */
+.how-it-works {
+  padding: 2rem 1rem;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.step {
+  background: #fff;
+  padding: 1.5rem;
+  width: 220px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--theme);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin: 0 auto 0.5rem;
+}
+
+/* --- Events Section --- */
+.events {
+  padding: 2rem 1rem;
+}
+
+/* Grid responsive layout */
+.event-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 992px) {
+  .event-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .event-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card styling */
+.event-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  height: 260px;
+}
+
+.event-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Hover zoom effect */
+.event-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay (hidden initially) */
+.event-card .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.4s ease;
+  inset:0;
+}
+
+.event-card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.overlay h3 {
+  margin: 0;
+  font-size: 20px;
+  color: rgb(164, 119, 85); /* theme color */
+}
+
+.overlay p {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #f1f1f1;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+/* --- Gallery Carousel --- */
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.carousel-card {
+  flex: 0 0 250px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Active (middle) card */
+.carousel-card.active {
+  transform: scale(1.2);
+  opacity: 1;
+  z-index: 2;
+  border-radius: 16px;
+}
+
+/* Side (left/right) cards */
+.carousel-card.side {
+  transform: scale(0.9);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* Hidden cards — not visible at all */
+.carousel-card.hidden {
+  display: none;
+}
+
+
+@media (max-width: 1024px) {
+  .carousel-card {
+    flex: 0 0 220px;
+    height: 270px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    gap: 0;
+  }
+
+  .carousel-card {
+    flex: 0 0 70%;
+    height: 260px;
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .carousel-card.side {
+    display: none;
+  }
+}
+
+.gallery{
+  margin-bottom: 30px;
+}

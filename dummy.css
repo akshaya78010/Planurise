@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.content h1 {
+  font-size: 36px;
+  margin-bottom: 60px;
+  color: #6b1e2d;
+}
+
+.cards {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  /* width: 90%; */
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  justify-items: center;
+}
+
+
+.c1 {
+  height: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff0f6;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 350px;
+  margin-bottom: 50px;
+}
+
+.c1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+}
+
+.default-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dual-hover img.img-left,
+.dual-hover img.img-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.dual-hover .img-left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.dual-hover .img-right {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.dual-hover:hover .img-left {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.dual-hover:hover .img-right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.c1 p {
+  text-align: center;
+  padding: 25px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #6b1e2d;
+  background: #ffe6ef;
+}
+
+.wedding:hover {
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+}
+
+.birthday:hover {
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.7);
+}
+
+.music:hover {
+  box-shadow: 0 0 25px rgba(219, 112, 147, 0.7);
+}
+
+.fest:hover {
+  box-shadow: 0 0 25px rgba(199, 21, 133, 0.6);
+}
+
+.corporate:hover {
+  box-shadow: 0 0 25px rgba(221, 160, 221, 0.6);
+}
+
+.baby:hover {
+  box-shadow: 0 0 25px rgba(255, 192, 203, 0.7);
+}
+
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    width: 95%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive text and spacing */
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .c1 {
+    height: 280px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    gap: 15px;
+  }
+  .c1 {
+    max-width: 200px;
+    height: 250px;
+    margin-bottom: 15px;
+  }
+  .c1 p {
+    font-size: 16px;
+  }
+}
+
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}

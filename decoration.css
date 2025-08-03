@@ -1,0 +1,286 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: rgba(224, 224, 147, 0.5);
+  color: #3e2f23;
+}
+
+/* Section Layout */
+section {
+  margin-left: 250px;
+  padding: 40px 20px 20px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.section-heading h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #6d4c41;
+  flex: 1;
+}
+
+/* Navigation Buttons */
+.prev-btn,
+.next-button {
+  padding: 10px 18px;
+  background-color: #6d4c41;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.prev-btn:hover,
+.next-button:hover {
+  transform: scale(1.05);
+  background-color: #5d3a33;
+}
+
+/* Card Grid */
+.grids {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 0 10px;
+}
+
+/* Venue Card */
+.card {
+  background-color: #fffaf4;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding-bottom: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeSlide 0.5s ease forwards;
+  opacity: 0;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #4f2c2c;
+  margin: 12px 0 6px;
+}
+
+.card .stars {
+  font-size: 14px;
+  color: #f4b400;
+  margin: 4px 0;
+}
+
+.card .price {
+  font-weight: 600;
+  font-size: 16px;
+  color: #4b3a2f;
+  margin-bottom: 12px;
+}
+
+/* Budget Button */
+#budget-btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #5d4037, #7b5e57);
+}
+
+#budget-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #6d4c41, #8d6e63);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  position: relative;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+
+.book-btn {
+  background-color: #473922;
+  padding: 8px 16px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  display: block;
+  width: fit-content;
+  margin: 10px auto 0 auto; /* Top margin and centered */
+}
+
+.book-btn:hover {
+  background-color: #7b5f36;
+  transform: scale(1.03);
+}
+
+/* Animations */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  position: relative;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #888;
+}
+
+.close:hover {
+  color: #c62828;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  section {
+    margin-left: 0;
+    padding-top: 100px;
+  }
+
+  .section-heading {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .section-heading h1 {
+    font-size: 20px;
+  }
+
+  .prev-btn,
+  .next-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card .price {
+    font-size: 15px;
+  }
+
+  .book-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .grids {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap:16px;
+  }
+}

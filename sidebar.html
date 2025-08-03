@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planurise</title>
+  <link rel="stylesheet" href="sidebar.css" />
+    <link rel="stylesheet" href="header.css" />
+    <script src="home.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+    <nav class="header">
+        <div class="nav-left">
+            <img class="logo_img" src="img/logo.png" alt="logo">
+            <div class="logo">Planurise</div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="nav-right desktop-nav">
+            <div class="nav-item">
+                <a href="header.html" class="no-underline active">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+            </div>
+            <div class="nav-item">
+                <a href="packages.html" class="no-underline">Packages</a>
+            </div>
+            <div class="nav-item">
+                <a href="Guest.html" class="no-underline">Guest Manager</a>
+            </div>
+            <div class="nav-item">
+                <a href="My_events.html" class="no-underline">My events</a>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="no-underline">About us</a>
+            </div>
+            <div class="user">
+                <a href="profile.html" class="no-underline">
+                    <img class="profile-img" src="img/profile.jpg" alt="Profile">
+                </a>
+            </div>
+        </div>
+
+        <button class="menu-bar" onclick="openSidebar()">☰</button>
+    </nav>
+
+    <!-- Sidebar for Mobile/Tablet -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-icon" onclick="closeSidebar()">X</div>
+        <div class="options">
+            <a href="header.html" class="no-underline active">Home</a>
+            <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+            <a href="packages.html" class="no-underline">Packages</a>
+            <a href="Guest.html" class="no-underline">Guest Manager</a>
+            <a href="my_events.html" class="no-underline">My events</a>
+            <a href="about.html" class="no-underline">About us</a>
+            <a href="profile.html" class="no-underline">Profile</a>
+        </div>
+    </div>
+    </body>
+    
+
+<!-- Desktop Sidebar -->
+<nav class="desktop-sidebar-nav">
+    <div class="sidebar-link"><a href="header.html" class="sidebar-link-text active">Home</a></div>
+    <div class="sidebar-link"><a href="plan_ur_event.html" class="sidebar-link-text">Plan your Event</a></div>
+    <div class="sidebar-link"><a href="packages.html" class="sidebar-link-text">Packages</a></div>
+    <div class="sidebar-link"><a href="Guest.html" class="sidebar-link-text">Guest Manager</a></div>
+    <div class="sidebar-link"><a href="My_events.html" class="sidebar-link-text">My events</a></div>
+    <div class="sidebar-link"><a href="about.html" class="sidebar-link-text">About us</a></div>
+
+    <!-- Image + Quote Section -->
+    <div class="sidebar-image-quote">
+        <img src="home/background1.png" alt="Wedding" />
+        <p class="quote-text">“Make memories, not just plans.”</p>
+    </div>
+</nav>
+
+<!-- Mobile Hamburger Icon -->
+<button class="mobile-menu-btn" onclick="openSidebarMenu()">&#9776;</button>
+
+<!-- Sidebar for Mobile -->
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="mobile-close" onclick="closeSidebarMenu()">✖</div>
+    <div class="mobile-options">
+        <a href="header.html" class="sidebar-link-text active">Home</a>
+        <a href="plan_ur_event.html" class="sidebar-link-text">Plan your Event</a>
+        <a href="packages.html" class="sidebar-link-text">Packages</a>
+        <a href="Guest.html" class="sidebar-link-text">Guest Manager</a>
+        <a href="my_events.html" class="sidebar-link-text">My events</a>
+        <a href="about.html" class="sidebar-link-text">About us</a>
+    </div>
+</div>
+
+<script>
+function openSidebarMenu() {
+    document.getElementById("mobileSidebar").style.left = "0px";
+}
+function closeSidebarMenu() {
+    document.getElementById("mobileSidebar").style.left = "-230px";
+}
+</script>
+
+</body>
+</html>

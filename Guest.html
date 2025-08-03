@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest List Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage-green: #9CAF88;
+            --slate-olive: #6B7C52;
+            --warm-beige: #F4F1E8;
+            --muted-tan: #D4C4A8;
+            --rich-brown: #5D4E37;
+            --dark-sage: #7A8B6B;
+            --light-sage: #B8C9A4;
+        }
+
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(164,119,85) ;
+    color: white;
+    position: sticky;
+    top: 0;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo_img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight:900;
+    font-family: "Playwrite AU NSW", cursive;
+}
+
+
+.nav-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.nav-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.no-underline {
+    text-decoration: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.no-underline:hover {
+    background: rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    color:rgb(250, 212, 105);
+}
+
+
+.no-underline.active{
+    color:#FAE29C;
+}
+
+.profile-img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.menu-bar {
+    display: none;
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-icon {
+    font-size: 24px;
+    color: white;
+    text-align: right;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.options a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    transition: background 0.3s, color 0.3s;
+}
+
+.options a:hover {
+    background: rgba(255,255,255,0.2);
+    color:rgb(250, 212, 105);
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    .menu-bar {
+        display: block;
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -230px;
+    width: 230px;
+    /* background: linear-gradient(to bottom, #ff3ad4, #ff0062); */
+    background-color: rgba(164,119,85);
+    box-shadow: -2px 0 15px rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+    transition: right 0.4s ease;
+    border-radius: 0 0 0 12px;
+    padding-top: 10px;
+    z-index: 20;
+}
+
+.close-icon {
+    font-size: 24px;
+    color: white;
+    text-align: right;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.options a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    transition: background 0.3s, color 0.3s;
+}
+
+.options a:hover {
+    background: rgba(255,255,255,0.1);
+    color:rgb(250, 212, 105);
+}
+
+        .top1 {
+            text-align: center;
+            margin-top: 0px;
+            background: var(--warm-beige);
+            padding: 40px 25px;
+        }
+
+        .guestlist {
+            font-family: 'Great Vibes', cursive;
+            font-size: 72px;
+            color: var(--rich-brown);
+            text-shadow: 2px 2px 8px rgba(93, 78, 55, 0.2);
+            letter-spacing: 2px;
+            padding: 20px 30px;
+            border-radius: 20px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, transparent, rgba(156, 175, 136, 0.1));
+        }
+
+        .guestlist:hover {
+            transform: scale(1.05);
+            color: var(--slate-olive);
+            text-shadow: 3px 3px 12px rgba(107, 124, 82, 0.3);
+        }
+
+        .invite-message {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--slate-olive);
+            line-height: 1.6;
+            margin: 40px auto;
+            max-width: 900px;
+            font-weight: 500;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 30px 40px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .inviteall, .add, .upload {
+            display: inline-block;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--warm-beige);
+            background: linear-gradient(135deg, var(--sage-green), var(--slate-olive));
+            box-shadow: 0 6px 20px rgba(156, 175, 136, 0.3);
+            letter-spacing: 0.5px;
+            user-select: none;
+            border: none;
+        }
+
+        .inviteall:hover, .add:hover, .upload:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(107, 124, 82, 0.4);
+            background: linear-gradient(135deg, var(--slate-olive), var(--rich-brown));
+        }
+
+        .guest1 {
+            margin: 60px auto 0 auto;
+            width: 92%;
+            max-width: 950px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            background: linear-gradient(135deg, var(--sage-green), var(--dark-sage));
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(93, 78, 55, 0.2);
+        }
+
+        .guestcard1 {
+            width: 95%;
+            max-width: 750px;
+            border: 2px solid var(--muted-tan);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 35px;
+            box-shadow: 0 8px 25px rgba(93, 78, 55, 0.15);
+            border-radius: 18px;
+            transition: all 0.3s ease;
+            background: var(--warm-beige);
+            font-family: 'Inter', sans-serif;
+            margin: 15px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guestcard1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--sage-green), var(--slate-olive));
+        }
+
+        .guestcard1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(93, 78, 55, 0.2);
+            border-color: var(--sage-green);
+        }
+
+        .guest-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1 1 65%;
+            min-width: 280px;
+        }
+
+        .name, .e-mail, .number {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--rich-brown);
+            font-weight: 500;
+            padding-left: 35px;
+            position: relative;
+            word-break: break-word;
+        }
+
+        .name::before, .e-mail::before, .number::before {
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            color: var(--slate-olive);
+        }
+        .name::before { content: '👤 '; }
+        .e-mail::before { content: '📧 '; }
+        .number::before { content: '📞 '; }
+
+        .buttong1 {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--warm-beige);
+            background: linear-gradient(135deg, var(--slate-olive), var(--rich-brown));
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .buttong1:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--rich-brown), var(--slate-olive));
+        }
+
+        .buttong1.invited {
+            background: var(--muted-tan);
+            color: var(--rich-brown);
+            cursor: default;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            height: 100vh; width: 100vw;
+            background-color: rgba(93, 78, 55, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .popup-content {
+            background: linear-gradient(135deg, var(--warm-beige), #ffffff);
+            padding: 30px 35px;
+            border-radius: 20px;
+            width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 40px rgba(93, 78, 55, 0.3);
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            animation: fadeIn 0.4s ease;
+            border: 2px solid var(--sage-green);
+        }
+
+        .uploadfile {
+            font-size: 32px;
+            color: var(--slate-olive);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .popup-content label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--rich-brown);
+            font-size: 15px;
+        }
+
+        .popup-content input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 2px solid var(--muted-tan);
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .popup-content input:focus {
+            outline: none;
+            border-color: var(--sage-green);
+        }
+
+        .upload-buttons {
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .save-btn, .cancel-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .save-btn {
+            background: linear-gradient(135deg, var(--sage-green), var(--slate-olive));
+            color: var(--warm-beige);
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(156, 175, 136, 0.3);
+        }
+
+        .cancel-btn {
+            background: linear-gradient(135deg, var(--muted-tan), var(--rich-brown));
+            color: var(--warm-beige);
+        }
+
+        .cancel-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 196, 168, 0.3);
+        }
+
+        .popup-content .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--slate-olive);
+            transition: color 0.3s ease;
+        }
+
+        .popup-content .close:hover {
+            color: var(--rich-brown);
+        }
+
+        .addpoints {
+            background: var(--warm-beige);
+            border: 2px solid var(--sage-green);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 700px;
+            margin: 40px auto;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 8px 25px rgba(156, 175, 136, 0.2);
+        }
+
+        .gtxt11 {
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 30px;
+            color: var(--slate-olive);
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        #guestConcernForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #guestConcernForm label {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--rich-brown);
+        }
+
+        #guestConcernForm select,
+        #guestConcernForm input,
+        #guestConcernForm textarea {
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid var(--muted-tan);
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        #guestConcernForm select:focus,
+        #guestConcernForm input:focus,
+        #guestConcernForm textarea:focus {
+            outline: none;
+            border-color: var(--sage-green);
+        }
+
+        .savebtn {
+            background: linear-gradient(135deg, var(--sage-green), var(--slate-olive));
+            color: var(--warm-beige);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .savebtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(156, 175, 136, 0.3);
+        }
+
+        .guest-notes {
+            list-style-type: none;
+            margin-top: 25px;
+            padding-left: 0;
+            font-size: 15px;
+        }
+
+        .guest-notes li {
+            background: #ffffff;
+            border-left: 4px solid var(--sage-green);
+            margin-bottom: 12px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(156, 175, 136, 0.1);
+            color: var(--rich-brown);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes waveText {
+            0%   { transform: translateY(0); }
+            25%  { transform: translateY(-3px); }
+            50%  { transform: translateY(0); }
+            75%  { transform: translateY(3px); }
+            100% { transform: translateY(0); }
+        }
+
+        .invite-message {
+            animation: waveText 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .menu-bar {
+                display: block;
+            }
+            
+            .guestcard1 {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .buttong1 {
+                align-self: stretch;
+                text-align: center;
+                margin: 10px 0 0;
+            }
+
+            .guest-details {
+                width: 100%;
+            }
+
+            .button-row {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .button-group {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .guestcard1 {
+                width: 75%;
+                min-height: 160px;
+            }
+        }
+
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
+      <script src="home.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <nav class="header">
+            <div class="nav-left">
+                <img class="logo_img" src="img/logo.png" alt="logo">
+                <div class="logo">Planurise</div>
+            </div>
+            <div class="nav-right desktop-nav">
+                <div class="nav-item">
+                    <a href="index.html" class="no-underline">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+                </div>
+                <div class="nav-item">
+                    <a href="packages.html" class="no-underline">Packages</a>
+                </div>
+                <div class="nav-item">
+                    <a href="Guest.html" class="no-underline active">Guest Manager</a>
+                </div>
+                <div class="nav-item">
+                    <a href="my_events.html" class="no-underline">My events</a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html" class="no-underline">About us</a>
+                </div>
+                <div class="user">
+                    <a href="profile.html" class="no-underline">
+                        <img class="profile-img" src="img/profile.jpg" alt="Profile">
+                    </a>
+                </div>
+            </div>
+            <button class="menu-bar" onclick="openSidebar()">☰</button>
+        </nav>
+
+        <div class="sidebar" id="sidebar">
+            <div class="close-icon" onclick="closeSidebar()">X</div>
+            <div class="options">
+                <a href="index.html" class="no-underline">Home</a>
+                <a href="plan_ur_event.html" class="no-underline">Plan your Event</a>
+                <a href="packages.html" class="no-underline">Packages</a>
+                <a href="Guest.html" class="no-underline active">Guest Manager</a>
+                <a href="my_events.html" class="no-underline">My events</a>
+                <a href="about.html" class="no-underline">About us</a>
+                <a href="profile.html" class="no-underline">Profile</a>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="close-icon" onclick="closeSidebar()">×</div>
+            <div class="options">
+                <a href="#">Home</a>
+                <a href="#">Events</a>
+                <a href="#">Settings</a>
+                <a href="#">Profile</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="top1">
+            <h1 class="guestlist">Guest List Manager</h1>
+            <p class="invite-message">
+                Organize your gatherings with elegance and ease
+            </p>
+        </div>
+
+        <div class="button-row">
+            <button class="inviteall" onclick="inviteAll()">Invite All</button>
+            <div class="button-group">
+                <button class="add" onclick="openAddPopup()">Add Guest</button>
+                <button class="upload">Upload List</button>
+            </div>
+        </div>
+
+        <!-- Guest Cards Container -->
+        <div class="guest1" id="guestContainer">
+            <!-- Sample Guest Cards -->
+            <div class="guestcard1">
+                <div class="guest-details">
+                    <div class="name">John Doe</div>
+                    <div class="e-mail">john.doe@email.com</div>
+                    <div class="number">+1 (555) 123-4567</div>
+                </div>
+                <button class="buttong1" onclick="toggleInvite(this)">Invite</button>
+            </div>
+
+            <div class="guestcard1">
+                <div class="guest-details">
+                    <div class="name">Jane Smith</div>
+                    <div class="e-mail">jane.smith@email.com</div>
+                    <div class="number">+1 (555) 987-6543</div>
+                </div>
+                <button class="buttong1" onclick="toggleInvite(this)">Invite</button>
+            </div>
+
+            <div class="guestcard1">
+                <div class="guest-details">
+                    <div class="name">Michael Johnson</div>
+                    <div class="e-mail">m.johnson@email.com</div>
+                    <div class="number">+1 (555) 456-7890</div>
+                </div>
+                <button class="buttong1" onclick="toggleInvite(this)">Invite</button>
+            </div>
+            <div  id="guest-list">
+  <!-- Guest cards will appear here -->
+</div>
+
+        </div>
+
+<!-- Add Guest Popup -->
+<div id="addPopup" class="popup">
+  <div class="popup-box">
+    <span class="popup-close" onclick="closePopups()">×</span>
+    <h3>Add Guest</h3>
+    <input type="text" id="guestName" placeholder="Name" />
+    <input type="text" id="guestNumber" placeholder="Phone Number" />
+    <input type="email" id="guestEmail" placeholder="Email" />
+    <div class="popup-actions">
+      <button onclick="saveGuest()">Save</button>
+      <button onclick="closePopups()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Upload Popup -->
+<div id="uploadPopup" class="popup">
+  <div class="popup-box">
+    <span class="popup-close" onclick="closePopups()">×</span>
+    <h3>Upload File</h3>
+    <select id="fileType">
+      <option value="">Select file type</option>
+      <option value="Excel">Excel</option>
+      <option value="PDF">PDF</option>
+      <option value="JPEG">JPEG</option>
+      <option value="Other">Other</option>
+    </select>
+    <input type="file" id="uploadInput" />
+    <div class="popup-actions">
+      <button onclick="saveUpload()">Upload and Save</button>
+      <button onclick="closePopups()">Cancel</button>
+    </div>
+  </div>
+</div>
+        <!-- Guest Notes Section -->
+        <div class="addpoints">
+            <h2 class="gtxt11">Event Notes & Preferences</h2>
+            <form id="guestConcernForm">
+                <label for="guestSelect">Select Guest:</label>
+                <select id="guestSelect">
+                    <option value="">Choose a guest...</option>
+                    <option value="john">John Doe</option>
+                    <option value="jane">Jane Smith</option>
+                    <option value="michael">Michael Johnson</option>
+                </select>
+                
+                <label for="noteType">Note Type:</label>
+                <select id="noteType">
+                    <option value="dietary">Dietary Preference</option>
+                    <option value="seating">Seating Preference</option>
+                    <option value="accessibility">Accessibility Need</option>
+                    <option value="general">General Note</option>
+                </select>
+                
+                <label for="noteText">Note Details:</label>
+                <textarea id="noteText" rows="3" placeholder="Enter note details..."></textarea>
+                
+                <button type="button" class="savebtn" onclick="saveNote()">Save Note</button>
+            </form>
+            
+            <ul class="guest-notes" id="notesList">
+                <li><strong>John Doe:</strong> Vegetarian diet preference</li>
+                <li><strong>Jane Smith:</strong> Prefers table near the window</li>
+            </ul>
+        </div>
+
+        <!-- Footer Section -->
+<footer>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="./footer.png" alt="Planurise Logo" class="footer-logo" />
+      <h2>Planurise</h2>
+      <p>Your one-stop destination to customize and plan magical events of all kinds!</p>
+    </div>
+
+    <div class="footer-center">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="footer-icons">
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" alt="Instagram" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/facebook.svg" alt="Facebook" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/twitter.svg" alt="Twitter" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/youtube.svg" alt="YouTube" /></a>
+      </div>
+
+      <!-- New icons row -->
+      <div class="footer-icons">
+        <a href="#"><img src="./home.png" alt="Home" /></a>
+        <a href="#"><img src="./share.png" alt="Share" /></a>
+        <a href="#"><img src="./heart.png" alt="Favourite" /></a>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <h3>Find Us</h3>
+      <p>123 Celebration Street,<br />Event City, India</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.9869297039337!2d72.87765561490352!3d19.07609088709217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce7b0f3eb5a7%3A0x6e4c7f2bc9c1c6e2!2sBandra%20Kurla%20Complex!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+        width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <p class="copyright">© 2025 Planurise. All Rights Reserved.</p>
+</footer>
+
+<style>
+  footer {
+    width: 100%;
+    background-color: #f4efec;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    padding: 40px 20px 10px;
+    box-sizing: border-box;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .footer-logo {
+    max-height: 120px;
+    width: auto;
+  }
+
+  .footer-left h2 {
+    margin: 10px 0 5px;
+    font-size: 24px;
+    color: #4b2e2e;
+  }
+
+  .footer-left p,
+  .footer-right p {
+    font-size: 14px;
+  }
+
+  .footer-center h3,
+  .footer-right h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #4b2e2e;
+  }
+
+  .footer-center ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px;
+  }
+
+  .footer-center ul li {
+    margin: 5px 0;
+  }
+
+  .footer-center ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .footer-center ul li a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-icons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .footer-icons a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-icons img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.3);
+    transition: 0.3s ease;
+  }
+
+  .footer-icons img:hover {
+    filter: brightness(1);
+    transform: scale(1.1);
+  }
+
+  iframe {
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .copyright {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+    color: #555;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-left, .footer-center, .footer-right {
+      max-width: 100%;
+    }
+
+    .footer-left img {
+      margin: 0 auto;
+      display: block;
+    }
+
+    .footer-icons {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    footer {
+      padding: 30px 10px;
+    }
+
+    .footer-left h2 {
+      font-size: 20px;
+    }
+
+    .footer-center h3,
+    .footer-right h3 {
+      font-size: 16px;
+    }
+
+    .footer-center ul li a {
+      font-size: 13px;
+    }
+
+    .footer-left p,
+    .footer-right p {
+      font-size: 13px;
+    }
+
+    .copyright {
+      font-size: 12px;
+    }
+  }
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: opacity 0.3s ease;
+}
+
+.popup-box {
+  background: var(--warm-beige, #f5f5dc);
+  padding: 30px 25px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+  position: relative;
+}
+
+.popup-box h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #2e2e2e;
+}
+
+.popup-box input,
+.popup-box select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #fffaf0;
+  transition: border 0.3s;
+}
+
+.popup-box input:focus,
+.popup-box select:focus {
+  border-color: #9caf88;
+  outline: none;
+}
+
+.popup-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.popup-actions button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right, #5f4b32, #9caf88);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.popup-actions button:hover {
+  background: linear-gradient(to right, #4b392a, #89a57d);
+}
+
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.popup-close:hover {
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.invited {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  cursor: default;
+}
+
+
+</style>
+    </div>
+
+<script>
+  const addBtn = document.querySelector(".add");
+  const uploadBtn = document.querySelector(".upload");
+  const inviteAllBtn = document.querySelector(".inviteall"); // ✅ corrected
+
+  const addPopup = document.getElementById("addPopup");
+  const uploadPopup = document.getElementById("uploadPopup");
+
+  addBtn.addEventListener("click", () => {
+    addPopup.style.display = "flex";
+  });
+
+  uploadBtn.addEventListener("click", () => {
+    uploadPopup.style.display = "flex";
+  });
+
+  // Close popup when clicking outside popup content
+  window.onclick = function (event) {
+    if (event.target === addPopup || event.target === uploadPopup) {
+      closePopups();
+    }
+  };
+
+  function closePopups() {
+    addPopup.style.display = "none";
+    uploadPopup.style.display = "none";
+  }
+
+  function saveGuest() {
+    const name = document.getElementById("guestName").value.trim();
+    const number = document.getElementById("guestNumber").value.trim();
+    const email = document.getElementById("guestEmail").value.trim();
+
+    if (!name || !number || !email) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    const guestList = document.getElementById("guestContainer");
+
+    const guestCard = document.createElement("div");
+    guestCard.className = "guestcard1";
+
+    const guestDetails = document.createElement("div");
+    guestDetails.className = "guest-details";
+
+    const nameDiv = document.createElement("div");
+    nameDiv.className = "name";
+    nameDiv.textContent = name;
+
+    const emailDiv = document.createElement("div");
+    emailDiv.className = "e-mail";
+    emailDiv.textContent = email;
+
+    const numberDiv = document.createElement("div");
+    numberDiv.className = "number";
+    numberDiv.textContent = number;
+
+    guestDetails.appendChild(nameDiv);
+    guestDetails.appendChild(emailDiv);
+    guestDetails.appendChild(numberDiv);
+
+    const inviteBtn = document.createElement("button");
+    inviteBtn.className = "buttong1"; // ✅ consistent with querySelector below
+    inviteBtn.textContent = "Invite";
+    inviteBtn.onclick = function () {
+      toggleInvite(this);
+    };
+
+    guestCard.appendChild(guestDetails);
+    guestCard.appendChild(inviteBtn);
+
+    guestList.appendChild(guestCard);
+
+    // Clear inputs
+    document.getElementById("guestName").value = "";
+    document.getElementById("guestNumber").value = "";
+    document.getElementById("guestEmail").value = "";
+
+    closePopups();
+  }
+
+  function toggleInvite(button) {
+    button.textContent = "Invited";
+    button.disabled = true;
+  }
+
+  function saveUpload() {
+    const type = document.getElementById("fileType").value;
+    const fileInput = document.getElementById("uploadInput");
+    const file = fileInput.files[0];
+
+    if (!type || !file) {
+      alert("Please select file type and choose a file.");
+      return;
+    }
+
+    alert(Uploaded` ${file.name} as ${type}`);
+
+    document.getElementById("fileType").value = "";
+    fileInput.value = "";
+
+    closePopups();
+  }
+
+  // ✅ This works now
+  inviteAllBtn.addEventListener("click", () => {
+    document.querySelectorAll(".buttong1").forEach(btn => {
+      btn.textContent = "Invited";
+      btn.disabled = true;
+    });
+  });
+
+</script>
+</body>
+</html>

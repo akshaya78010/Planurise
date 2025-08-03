@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login2.css" />
+    <title>Vendor Login</title>
+</head>
+
+<body>
+    <div class="form">
+        <h1>Login</h1>
+        <div class="email_container">
+            <input id="username" type="text" placeholder="Username or Email address" required />
+            <p id="username_error" class="error"></p>
+        </div>
+
+        <div class="password_container">
+            <input id="password" type="password" placeholder="Password" required />
+            <button id="hide" onclick="toggle_fun()"></button>
+            <p id="password_error" class="error"></p>
+        </div>
+
+        <br>
+
+        <div class="checkbox_region">
+            <div>
+                <input type="checkbox" />
+                <label>Remember me</label>
+            </div>
+            <div>
+                <a href="http://127.0.0.1:5501/forgot%20password/forgot_password.html">Forgot Password</a>
+            </div>
+        </div>
+
+        <div class="button">
+            <button onclick="save_the_signup_data()"><a href="index.html" l
+                    style="text-decoration: none; color : white;">Login</a></button>
+        </div>
+
+        <div class="other_login_options">
+            <p>Don't have an account?<a href="signup.html">Sign up</a></p>
+
+            <label>or else you can login with</label>
+            <div class="signin_accounts">
+                <a href="#"><img src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000"></a>
+                <a href="#"><img src="https://img.icons8.com/?size=100&id=22989&format=png&color=000000"></a>
+                <a href="#"><img src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function toggle_fun() {
+            if (password.type === "password") {
+                document.getElementById("password").type = "text";
+                document.getElementById("hide").style.backgroundImage = "url('https://img.icons8.com/?size=100&id=85329&format=png&color=000000')";
+            }
+            else {
+                document.getElementById("password").type = "password";
+                document.getElementById("hide").style.backgroundImage = "url('https://img.icons8.com/?size=100&id=100236&format=png&color=000000')";
+            }
+        }
+
+
+        function save_the_signup_data() {
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+
+            document.getElementById("username_error").innerText = "";
+            document.getElementById("password_error").innerText = "";
+
+            // Example dummy logic (you can replace with real logic later)
+            let storedPassword = localStorage.getItem(username);
+
+            // Validate inputs
+            if (username === "") {
+                document.getElementById("username_error").innerText = "Username or Email is required.";
+                return;
+            }
+            if (!storedPassword) {
+                document.getElementById("username_error").innerText = "User not found.";
+                return;
+            }
+
+            if (password.length <= 6) {
+                document.getElementById("password_error").innerText = "Password must be at least 6 characters.";
+                return;
+            }
+            if (password !== storedPassword) {
+                document.getElementById("password_error").innerText = "Incorrect password.";
+                return;
+            }
+
+            // If everything is valid
+            alert("Login successful!");
+        }
+
+
+    </script>
+</body>
+
+</html>

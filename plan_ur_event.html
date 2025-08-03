@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Planner</title>
+  <link rel="stylesheet" href="plan_ur_event.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+  <script src="home.js"></script>
+  <script>
+    function openSidebar() {
+    document.getElementById("sidebar").style.right = "0";
+}
+function closeSidebar() {
+    document.getElementById("sidebar").style.right = "-230px";
+}
+
+  </script>
+
+</head>
+<body>
+  <!-- Header -->
+  <nav class="header">
+    <div class="nav-left">
+        <img class="logo_img" src="img/logo.png" alt="logo">
+        <div class="logo">Planurise</div>
+    </div>
+    <div class="nav-right desktop-nav">
+        <div class="nav-item">
+            <a href="index.html" class="no-underline">Home</a>
+        </div>
+        <div class="nav-item">
+            <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+        </div>
+        <div class="nav-item">
+            <a href="packages.html" class="no-underline">Packages</a>
+        </div>
+        <div class="nav-item">
+            <a href="Guest.html" class="no-underline">Guest Manager</a>
+        </div>
+        <div class="nav-item">
+            <a href="my_events.html" class="no-underline">My events</a>
+        </div>
+        <div class="nav-item">
+            <a href="about.html" class="no-underline">About us</a>
+        </div>
+        <div class="user">
+            <a href="profile.html" class="no-underline">
+                <img class="profile-img" src="img/profile.jpg" alt="Profile">
+            </a>
+        </div>
+    </div>
+    <button class="menu-bar" onclick="openSidebar()">☰</button>
+  </nav>
+
+  <div class="sidebar" id="sidebar">
+      <div class="close-icon" onclick="closeSidebar()">X</div>
+      <div class="options">
+          <a href="index.html" class="no-underline">Home</a>
+          <a href="plan_ur_event.html" class="no-underline active">Plan your Event</a>
+          <a href="packages.html" class="no-underline">Packages</a>
+          <a href="Guest.html" class="no-underline">Guest Manager</a>
+          <a href="my_events.html" class="no-underline">My events</a>
+          <a href="about.html" class="no-underline">About us</a>
+          <a href="profile.html" class="no-underline">Profile</a>
+      </div>
+  </div> 
+
+
+  <!-- Event Categories Section -->
+  <section class="events">
+    <h2>Our Event Categories</h2>
+    <div class="event-cards">
+      <a href="plan_ur_event1.html" onclick="selectEvent('wedding')" class="event-card">
+        <img src="images/wedding.jpg" alt="Wedding">
+        <div class="overlay">
+          <h3>Wedding</h3>
+          <p>Elegant décor, catering, and memorable celebrations.</p>
+        </div>
+      </a>
+
+      <a href="plan_ur_event2.html" onclick="selectEvent('birthday')" class="event-card">
+        <img src="images/birthday.jpg" alt="Birthday">
+        <div class="overlay">
+          <h3>Birthday</h3>
+          <p>Custom themes, cakes, and activities for all ages.</p>
+        </div>
+      </a>
+
+      <a href="plan_ur_event3.html" onclick="selectEvent('babyshower')" class="event-card">
+        <img src="images/babyshower.jpg" alt="Baby Shower">
+        <div class="overlay">
+          <h3>Baby Shower</h3>
+          <p>Adorable decorations and intimate gatherings.</p>
+        </div>
+      </a>
+
+      <a href="plan_ur_event4.html" onclick="selectEvent('farewell')" class="event-card">
+        <img src="images/college.jpg" alt="Farewell">
+        <div class="overlay">
+          <h3>Farewell</h3>
+          <p>Memorable send-offs with décor and catering options.</p>
+        </div>
+      </a>
+
+      <a href="plan_ur_event5.html" onclick="selectEvent('corporate_event')" class="event-card">
+        <img src="images/corporate.jpg" alt="Corporate Event">
+        <div class="overlay">
+          <h3>Corporate Event</h3>
+          <p>Professional setups for conferences and seminars.</p>
+        </div>
+      </a>
+
+      <a href="plan_ur_event6.html" onclick="selectEvent('college_event')" class="event-card">
+        <img src="images/graduation.jpg" alt="College Event">
+        <div class="overlay">
+          <h3>College Event</h3>
+          <p>Festivals, fests, and campus-wide celebrations.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+
+  
+  <!-- How It Works Section -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="icon">1</div>
+        <h3>Event Details</h3>
+        <p>Provide event location, date, and guest count to begin.</p>
+      </div>
+      <div class="step">
+        <div class="icon">2</div>
+        <h3>Choose Options</h3>
+        <p>Select venue, décor, food, photography, and entertainment.</p>
+      </div>
+      <div class="step">
+        <div class="icon">3</div>
+        <h3>Track Budget</h3>
+        <p>View real-time budget updates while selecting services.</p>
+      </div>
+      <div class="step">
+        <div class="icon">4</div>
+        <h3>Generate Invoice</h3>
+        <p>Receive a detailed bill with save or pay-later options.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <h2>Event Gallery</h2>
+    <div class="carousel">
+      <div class="carousel-card"><img src="https://eventsmanagementkerala.com/wp-content/uploads/elementor/thumbs/Mayz-24-01-18_14-15-09-683-scaled-qukn1e5nr3y3yk97q5kt0q5h6fwj9eowbl67ythjn0.webp" alt="Gallery 1"></div>
+      <div class="carousel-card"><img src="images/gallery1.jpg" alt="Gallery 2"></div>
+      <div class="carousel-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuqnvpXDHkFLi4sLVQ64g5ok4-RgvzNM90YA&s" alt="Gallery 3"></div>
+      <div class="carousel-card"><img src="images/gallery3.jpg" alt="Gallery 4"></div>
+      <div class="carousel-card"><img src="home/background5.jpg" alt="Gallery 5"></div>
+      <div class="carousel-card"><img src="images/gallery2.jpg" alt="Gallery 6"></div>
+    </div>
+  </section>
+
+  <footer>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="img/logo.png" alt="Planurise Logo" class="footer-logo" />
+      <h2>Planurise</h2>
+      <p>Your one-stop destination to customize and plan magical events of all kinds!</p>
+    </div>
+
+    <div class="footer-center">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="footer-icons">
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" alt="Instagram" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/facebook.svg" alt="Facebook" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/twitter.svg" alt="Twitter" /></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/youtube.svg" alt="YouTube" /></a>
+      </div>
+
+      <!-- New icons row -->
+      <div class="footer-icons">
+        <a href="#"><img src="./home.png" alt="Home" /></a>
+        <a href="#"><img src="./share.png" alt="Share" /></a>
+        <a href="#"><img src="./heart.png" alt="Favourite" /></a>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <h3>Find Us</h3>
+      <p>123 Celebration Street,<br />Event City, India</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.9869297039337!2d72.87765561490352!3d19.07609088709217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce7b0f3eb5a7%3A0x6e4c7f2bc9c1c6e2!2sBandra%20Kurla%20Complex!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+        width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <p class="copyright">© 2025 Planurise. All Rights Reserved.</p>
+</footer>
+
+  <script>
+  function selectEvent(type) {
+    localStorage.setItem("selectedEvent", type);
+  }
+</script>
+  <script src="plan.js"></script>
+</body>
+</html>
